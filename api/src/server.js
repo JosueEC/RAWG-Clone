@@ -1,10 +1,12 @@
 const express = require('express')
 const morgan = require('morgan')
 
+const { SERVER_CONST } = require('../consts')
+
 const server = express()
 
 server.use((req, res, next) => {
-  res.header('Acces-Control-Allow-Origin', 'http://localhost:3000')
+  res.header('Acces-Control-Allow-Origin', `${SERVER_CONST.CORS_DOMAIN}:${SERVER_CONST.CORS_PORT}`)
   res.header('Acces-Control-Allow-Credentials', 'true')
   res.header('Acces-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   res.header('Acces-Controll-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
