@@ -11,10 +11,11 @@ server.use((req, res, next) => {
   next()
 })
 
+server.use(express.json())
 server.use(morgan('dev'))
 
-server.get((req, res) => {
-  res.status(200).send('Hello World')
+server.get('/', (req, res) => {
+  res.status(200).send('Welcome to the API')
 })
 
 server.use((err, req, res, next) => {
