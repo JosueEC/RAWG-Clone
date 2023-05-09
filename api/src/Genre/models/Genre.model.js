@@ -42,6 +42,14 @@ module.exports = (database) => {
       validate: {
         isUrl: true
       }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      defaultValue: '',
+      validate: {
+        len: [10, 1100]
+      }
     }
   }, {
     timestamps: false
