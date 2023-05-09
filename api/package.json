@@ -1,0 +1,35 @@
+{
+  "name": "api-rawg",
+  "version": "1.0.0",
+  "description": "This is a project backend using NodeJS, Express, Sequelize and PostgreSQL as the database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "api",
+    "javascript",
+    "nodejs",
+    "express",
+    "sequelize",
+    "postgresql"
+  ],
+  "author": "Josue Evangelista Cruz",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "standard": "^17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.31.1"
+  }
+}
