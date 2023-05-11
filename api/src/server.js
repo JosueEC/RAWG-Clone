@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const { SERVER_CONST } = require('../consts')
 
 const VideogamesRoutes = require('./Videogame/routes/Videogames.routes')
+const GenreRoutes = require('./Genre/routes/Genre.routes')
 
 const server = express()
 
@@ -19,6 +20,8 @@ server.use(express.json())
 server.use(morgan('dev'))
 
 server.use('/videogames', VideogamesRoutes)
+
+server.use('/genres', GenreRoutes)
 
 server.use((err, req, res, next) => {
   const status = err.status || 500
