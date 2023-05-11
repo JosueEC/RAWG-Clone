@@ -13,3 +13,8 @@ router.get('/', (req, res) => {
 router.get('/:idVideogame', (req, res) => {
   res.status(200).send('get -> info videogame por id')
 })
+
+// TODO: Crea un nuevo videojuego en nuestra base de datos con la informacion recibida por query
+router.post('/', (req, res) => {
+  res.status(200).send('post -> videogame')
+})
