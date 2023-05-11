@@ -8,3 +8,8 @@ const router = Router()
 router.get('/', (req, res) => {
   res.status(200).send('get -> videogames')
 })
+
+// TODO: Obtiene la informacion detallada de un videojuego en base a un ID recibido por params
+router.get('/:idVideogame', (req, res) => {
+  res.status(200).send('get -> info videogame por id')
+})
