@@ -25,7 +25,7 @@ router.put('/', (req, res) => {
 })
 
 // TODO: Elimina un videogame de la base de datos en base a un ID recibido por params
-router.delete('/', (req, res) => {
+router.delete('/:idVideogame', (req, res) => {
   res.status(200).send('delete -> videogame')
 })
 
