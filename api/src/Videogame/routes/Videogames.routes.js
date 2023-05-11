@@ -28,3 +28,5 @@ router.put('/', (req, res) => {
 router.delete('/', (req, res) => {
   res.status(200).send('delete -> videogame')
 })
+
+module.exports = router
