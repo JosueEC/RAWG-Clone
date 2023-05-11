@@ -3,6 +3,8 @@ const morgan = require('morgan')
 
 const { SERVER_CONST } = require('../consts')
 
+const VideogamesRoutes = require('./Videogame/routes/Videogames.routes')
+
 const server = express()
 
 server.use((req, res, next) => {
@@ -16,9 +18,7 @@ server.use((req, res, next) => {
 server.use(express.json())
 server.use(morgan('dev'))
 
-server.get('/', (req, res) => {
-  res.status(200).send('Welcome to the API')
-})
+server.use('/videogames', VideogamesRoutes)
 
 server.use((err, req, res, next) => {
   const status = err.status || 500
