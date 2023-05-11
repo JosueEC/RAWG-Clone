@@ -3,7 +3,7 @@ const morgan = require('morgan')
 
 const { SERVER_CONST } = require('../consts')
 
-const VideogamesRoutes = require('./Videogame/routes/Videogames.routes')
+const VideogameRoutes = require('./Videogame/routes/Videogame.routes')
 const GenreRoutes = require('./Genre/routes/Genre.routes')
 
 const server = express()
@@ -19,7 +19,7 @@ server.use((req, res, next) => {
 server.use(express.json())
 server.use(morgan('dev'))
 
-server.use('/videogames', VideogamesRoutes)
+server.use('/videogames', VideogameRoutes)
 
 server.use('/genres', GenreRoutes)
 
