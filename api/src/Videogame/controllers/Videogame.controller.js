@@ -1,4 +1,5 @@
 const { serviceGetVideogamesFromAPI } = require('../services/services External API/GetVideogames.service')
+const { serviceGetVideogameByIDFromAPI } = require('../services/services External API/GetVideogameByID.service')
 
 const getVideogames = async (req, res) => {
   try {
@@ -12,8 +13,8 @@ const getVideogames = async (req, res) => {
 const getVideogameByID = async (req, res) => {
   try {
     const { idVideogame } = req.params
-    // const videogame = await serviceGetVideogameByID(idVideogame)
-    res.status(200).send({ status: 'FOUND', data: idVideogame })
+    const videogame = await serviceGetVideogameByIDFromAPI(idVideogame)
+    res.status(200).send({ status: 'FOUND', data: videogame })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
   }
