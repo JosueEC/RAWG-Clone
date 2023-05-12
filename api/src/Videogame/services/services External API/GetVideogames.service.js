@@ -1,5 +1,5 @@
-const serviceGetVideogames = async () => {
+const serviceGetVideogamesFromAPI = async () => {
   return 'videogames de la Database'
 }
 
-module.exports = { serviceGetVideogames }
+module.exports = { serviceGetVideogamesFromAPI }
