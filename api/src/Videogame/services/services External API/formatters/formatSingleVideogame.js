@@ -1,3 +1,5 @@
+const formatter = require('./formatArrayOfVideogames')
+
 function formatSingleVideogame (objVideogame) {
   const videogame = {
     id: objVideogame.id,
@@ -7,26 +9,15 @@ function formatSingleVideogame (objVideogame) {
     website: objVideogame.website,
     rating: objVideogame.rating,
     rating_top: objVideogame.rating_top,
-    ratings: formatArrayOfRatings(objVideogame.ratings),
+    ratings: formatter.formatArrayOfRatings(objVideogame.ratings),
     movies_count: objVideogame.movies_count,
     ratings_count: objVideogame.movies_count,
     platforms: formatArrayOfPlatforms(objVideogame.platforms),
-    genres: objVideogame.genres,
-    tags: objVideogame.tags,
+    genres: formatter.formatArrayOfGenres(objVideogame.genres),
+    tags: formatter.formatArrayOfTags(objVideogame.tags),
     description_raw: objVideogame.description_raw
   }
   return videogame
-}
-
-function formatArrayOfRatings (arrayOfRatings) {
-  const ratings = arrayOfRatings.map((rating) => {
-    return {
-      id: rating.id,
-      title: rating.title,
-      count: rating.count
-    }
-  })
-  return ratings
 }
 
 function formatArrayOfPlatforms (arrayOfPlatforms) {

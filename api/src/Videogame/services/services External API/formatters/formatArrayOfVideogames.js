@@ -27,6 +27,7 @@ function formatArrayOfVideogames (arrayOfVideogames) {
 function formatArrayOfRatings (arrayOfRatings) {
   const ratings = arrayOfRatings.map((rating) => {
     return {
+      id: rating.id,
       title: rating.title,
       count: rating.count
     }
@@ -66,5 +67,8 @@ function formatArrayOfTags (arrayOfTags) {
 }
 
 module.exports = {
-  formatArrayOfVideogames
+  formatArrayOfVideogames,
+  formatArrayOfRatings,
+  formatArrayOfGenres,
+  formatArrayOfTags
 }
