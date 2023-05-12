@@ -8,12 +8,10 @@ function formatArrayOfVideogames (arrayOfVideogames) {
       background_image: videogame.background_image,
       rating: videogame.rating,
       rating_top: videogame.rating_top,
-      ratings: videogame.ratings,
-      ratings_count: videogame.ratings_count,
-      platforms: videogame.platforms,
-      genres: videogame.genres,
-      tags: videogame.tags,
-      short_screenshots: videogame.short_screenshots
+      ratings: formatArrayOfRatings(videogame.ratings),
+      platforms: formatArrayOfPlatforms(videogame.platforms),
+      genres: formatArrayOfGenres(videogame.genres),
+      tags: formatArrayOfTags(videogame.tags)
     }
   })
 
@@ -24,6 +22,47 @@ function formatArrayOfVideogames (arrayOfVideogames) {
   }
 
   return newFormat
+}
+
+function formatArrayOfRatings (arrayOfRatings) {
+  const ratings = arrayOfRatings.map((rating) => {
+    return {
+      title: rating.title,
+      count: rating.count
+    }
+  })
+
+  return ratings
+}
+
+function formatArrayOfPlatforms (arrayOfPlatforms) {
+  const platforms = arrayOfPlatforms.map((item) => {
+    return {
+      name: item.platform.name,
+      slug: item.platform.slug,
+      released_at: item.released_at
+    }
+  })
+
+  return platforms
+}
+
+function formatArrayOfGenres (arrayOfGenres) {
+  const genres = []
+  arrayOfGenres.forEach((genre) => {
+    genres.push(genre.slug)
+  })
+
+  return genres
+}
+
+function formatArrayOfTags (arrayOfTags) {
+  const tags = []
+  arrayOfTags.forEach((tag) => {
+    tags.push(tag.slug)
+  })
+
+  return tags
 }
 
 module.exports = {
