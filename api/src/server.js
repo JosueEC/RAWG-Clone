@@ -1,5 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
+const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const { SERVER_CONST } = require('../consts')
 
@@ -23,9 +25,12 @@ server.use('/videogames', VideogameRoutes)
 
 server.use('/genres', GenreRoutes)
 
+server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
+server.use(bodyParser.json({ limit: '50mb' }))
+server.use(methodOverride())
 server.use((err, req, res, next) => {
   const status = err.status || 500
-  const message = err.message || err
+  const message = 'Bad Request, try to acces to non-existend endpoint'
   console.log(err)
   res.status(status).send(message)
 })

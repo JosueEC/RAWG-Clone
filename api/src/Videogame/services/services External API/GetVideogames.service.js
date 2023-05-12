@@ -12,6 +12,7 @@ const serviceGetVideogamesFromAPI = async () => {
     .then((data) => {
       return data
     })
+  if (videogames.length === 0) throw new Error('Failed to GET videogames from external API RWAG')
   const newFormatVideogames = formatArrayOfVideogames(videogames)
   return newFormatVideogames
 }
