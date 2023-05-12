@@ -9,6 +9,17 @@ const getVideogames = async (req, res) => {
   }
 }
 
+const getVideogameByID = async (req, res) => {
+  try {
+    const { idVideogame } = req.params
+    // const videogame = await serviceGetVideogameByID(idVideogame)
+    res.status(200).send({ status: 'FOUND', data: idVideogame })
+  } catch (error) {
+    res.status(404).send({ status: 'FAILED', error: error.message })
+  }
+}
+
 module.exports = {
-  getVideogames
+  getVideogames,
+  getVideogameByID
 }

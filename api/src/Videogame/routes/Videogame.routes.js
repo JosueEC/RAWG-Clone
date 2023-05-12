@@ -10,9 +10,7 @@ const router = Router()
 router.get('/', VideogameController.getVideogames)
 
 // TODO: Obtiene la informacion detallada de un videojuego en base a un ID recibido por params
-router.get('/:idVideogame', (req, res) => {
-  res.status(200).send('get -> info videogame por id')
-})
+router.get('/:idVideogame', VideogameController.getVideogameByID)
 
 // TODO: Crea un nuevo videojuego en nuestra base de datos con la informacion recibida por query
 router.post('/', (req, res) => {
