@@ -1,4 +1,4 @@
-//! Constants and Envoiroment Variables
+//! Constants and Envoironment Variables
 require('dotenv').config()
 const { API_KEY } = process.env
 const { EXTERNAL_API_CONST } = require('../../../../consts')
@@ -9,7 +9,7 @@ const { formatArrayOfGenres } = require('./formatters/formatArrayOfGenres')
 
 //! Service
 const serviceGetGenresFromAPI = async () => {
-  //! Todos los generos: "https://api.rawg.io/api/genres?key=123"
+  //! https://api.rawg.io/api/genres?key=123
   const genres = await fetch(`${EXTERNAL_API_CONST.DOMAIN}/genres?key=${API_KEY}`)
     .then((response) => response.json())
     .then((data) => {

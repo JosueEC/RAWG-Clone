@@ -1,7 +1,9 @@
+//! Services
 const { serviceGetVideogamesFromAPI } = require('../services/services External API/GetVideogames.service')
 const { serviceGetVideogameByIDFromAPI } = require('../services/services External API/GetVideogameByID.service')
 const { serviceGetVideogamesByQueryFromAPI } = require('../services/services External API/GetVideogamesByQuery.service')
 
+//! Handlers
 const getVideogames = async (req, res) => {
   try {
     const { name } = req.query

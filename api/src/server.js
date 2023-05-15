@@ -1,3 +1,4 @@
+//! Express and Middlewares
 const express = require('express')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
@@ -5,13 +6,16 @@ const methodOverride = require('method-override')
 
 const { SERVER_CONST } = require('../consts')
 
+//! Routes Modules
 const VideogameRoutes = require('./Videogame/routes/Videogame.routes')
 const GenreRoutes = require('./Genre/routes/Genre.routes')
 const ParentPlatformRoutes = require('./Platform/routes/ParentPlatform.routes')
 const ChildPlatformRoutes = require('./Platform/routes/ChildPlatform.routes')
 
+//! Instance of Express
 const server = express()
 
+//! CORS Configuration
 server.use((req, res, next) => {
   res.header('Acces-Control-Allow-Origin', `${SERVER_CONST.CORS_DOMAIN}:${SERVER_CONST.CORS_PORT}`)
   res.header('Acces-Control-Allow-Credentials', 'true')
@@ -20,9 +24,11 @@ server.use((req, res, next) => {
   next()
 })
 
+//! Middlewares
 server.use(express.json())
 server.use(morgan('dev'))
 
+//! Middlewares for the Endpoints
 server.use('/videogames', VideogameRoutes)
 
 server.use('/genres', GenreRoutes)
@@ -31,6 +37,7 @@ server.use('/parent-platforms', ParentPlatformRoutes)
 
 server.use('/child-platforms', ChildPlatformRoutes)
 
+//! Error Middleware
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
 server.use(methodOverride())

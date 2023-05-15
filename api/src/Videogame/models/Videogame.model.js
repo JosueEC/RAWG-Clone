@@ -1,5 +1,7 @@
+//! Datatypes module of sequelize
 const { DataTypes } = require('sequelize')
 
+//! Connection and define function
 module.exports = (database) => {
   database.define('videogame', {
     id: {

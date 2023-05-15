@@ -1,15 +1,18 @@
+//! Express Router
 const { Router } = require('express')
 
+//! Controller Module
 const VideogameController = require('../controllers/Videogame.controller')
 
+//! Router Instance
 const router = Router()
 
-// TODO: Por defecto obtiene 100 videojuegos de la API externa y 50 de la base de datos
-
-// TODO: En caso de que llegue una query en la request, obtiene 100 videojuegos de la API externa y 50 videojuegos de la base de datos, loc cuales, coincidan con la query por nombre
+//! HTTP Requests
+// Por defecto obtiene 100 videojuegos de la API externa y 50 de la base de datos
+// En caso de que llegue una query en la request, obtiene 100 videojuegos de la API externa y 50 videojuegos de la base de datos, los cuales, coincidan con la query por nombre
 router.get('/', VideogameController.getVideogames)
 
-// TODO: Obtiene la informacion detallada de un videojuego en base a un ID recibido por params
+// Obtiene la informacion detallada de un videojuego en base a un ID recibido por params
 router.get('/:idVideogame', VideogameController.getVideogameByID)
 
 // TODO: Crea un nuevo videojuego en nuestra base de datos con la informacion recibida por query
