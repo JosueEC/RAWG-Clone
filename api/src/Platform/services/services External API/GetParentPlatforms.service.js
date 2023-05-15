@@ -1,8 +1,11 @@
-//! Consts, Envoironment variables
+//! Consts and Envoironment variables
 require('dotenv').config()
 const { API_KEY } = process.env
 const { EXTERNAL_API_CONST } = require('../../../../consts')
 const fetch = require('node-fetch')
+
+//! Formatters
+const { formatArrayOfParentPlatforms } = require('./formatters/formatArrayOfParentPlatforms')
 
 //! Service
 const serviceGetParentPlatformsFromAPI = async () => {
@@ -12,7 +15,8 @@ const serviceGetParentPlatformsFromAPI = async () => {
     .then((data) => {
       return data
     })
-  return parentPlatforms
+  const newFormatParentPlatforms = formatArrayOfParentPlatforms(parentPlatforms)
+  return newFormatParentPlatforms
 }
 
 module.exports = {
