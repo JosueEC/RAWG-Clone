@@ -28,6 +28,10 @@ server.use('/genres', GenreRoutes)
 
 server.use('/parent-platforms', ParentPlatformRoutes)
 
+server.use('/child-platforms', (req, res) => {
+  res.status(200).send('server /child-platforms')
+})
+
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
 server.use(methodOverride())
