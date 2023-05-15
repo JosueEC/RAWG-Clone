@@ -18,10 +18,13 @@ defineModelGenre(database)
 defineModelParentPlatform(database)
 defineModelChildPlatform(database)
 
-const { videogame, genre } = database.models
+const { videogame, genre, childPlatform } = database.models
 
 videogame.belongsToMany(genre, { through: 'videogame-genre' })
 genre.belongsToMany(videogame, { through: 'videogame-genre' })
+
+videogame.belongsToMany(childPlatform, { through: 'videogame-childPlatform' })
+childPlatform.belongsToMany(videogame, { through: 'videogame-childPlatform' })
 
 module.exports = {
   database,
