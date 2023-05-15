@@ -1,6 +1,11 @@
+//! Services
+const { serviceGetChildPlatfromsFromAPI } = require('../services/services External API/GetChildPlatforms.service')
+
+//! Handlers
 const getChildPlatforms = async (req, res) => {
   try {
-    res.status(200).send('handler controller /child-platforms')
+    const childPlatforms = await serviceGetChildPlatfromsFromAPI()
+    res.status(302).send({ status: 'FOUND', data: childPlatforms })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
   }
