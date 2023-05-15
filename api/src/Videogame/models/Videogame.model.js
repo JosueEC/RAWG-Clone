@@ -7,10 +7,10 @@ module.exports = (database) => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV1,
-      primaryKey: true,
-      validate: {
-        isUUid: true
-      }
+      primaryKey: true
+      // validate: {
+      //   isUUid: true
+      // }
     },
     name: {
       type: DataTypes.STRING,
@@ -22,10 +22,10 @@ module.exports = (database) => {
     },
     released: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        is: /^\\d{4}-\\d{2}-\\d{2}$/i
-      }
+      allowNull: false
+      // validate: {
+      //   is: /^\\d{4}-\\d{2}-\\d{2}$/i
+      // }
     },
     background_image: {
       type: DataTypes.STRING,
