@@ -5,6 +5,7 @@ const { EXTERNAL_API_CONST } = require('../../../../consts')
 const fetch = require('node-fetch')
 
 //! Formatters
+const { formatArrayOfGenres } = require('./formatters/formatArrayOfGenres')
 
 //! Service
 const serviceGetGenresFromAPI = async () => {
@@ -14,7 +15,8 @@ const serviceGetGenresFromAPI = async () => {
     .then((data) => {
       return data
     })
-  return genres
+  const newFormatGenres = formatArrayOfGenres(genres)
+  return newFormatGenres
 }
 
 module.exports = {
