@@ -1,6 +1,14 @@
 function formatArrayOfChildPlatforms (arrayOfChildPlatforms) {
-  // TODO: Definir la logica para mapear las child-platforms y obtener solo las propiedades que se requiern en el frontend
-  return 'child-platforms formateadas'
+  const childPlatforms = arrayOfChildPlatforms.results.map((childPlatform) => {
+    return {
+      id: childPlatform.id,
+      name: childPlatform.name,
+      slug: childPlatform.slug,
+      games_count: childPlatform.games_count,
+      image_background: childPlatform.image_background
+    }
+  })
+  return childPlatforms
 }
 
 module.exports = {
