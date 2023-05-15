@@ -1,9 +1,9 @@
 const { Router } = require('express')
 
+const ParentPlatformController = require('../controllers/ParentPlatform.controller')
+
 const router = Router()
 
-router.get('/', (req, res) => {
-  res.status(200).send('router platform')
-})
+router.get('/', ParentPlatformController.getParentPlatforms)
 
 module.exports = router
