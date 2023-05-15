@@ -8,6 +8,7 @@ const { SERVER_CONST } = require('../consts')
 const VideogameRoutes = require('./Videogame/routes/Videogame.routes')
 const GenreRoutes = require('./Genre/routes/Genre.routes')
 const ParentPlatformRoutes = require('./Platform/routes/ParentPlatform.routes')
+const ChildPlatformRoutes = require('./Platform/routes/ChildPlatform.routes')
 
 const server = express()
 
@@ -28,9 +29,7 @@ server.use('/genres', GenreRoutes)
 
 server.use('/parent-platforms', ParentPlatformRoutes)
 
-server.use('/child-platforms', (req, res) => {
-  res.status(200).send('server /child-platforms')
-})
+server.use('/child-platforms', ChildPlatformRoutes)
 
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
