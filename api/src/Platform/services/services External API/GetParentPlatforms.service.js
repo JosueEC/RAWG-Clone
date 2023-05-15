@@ -10,7 +10,7 @@ const { formatArrayOfParentPlatforms } = require('./formatters/formatArrayOfPare
 //! Service
 const serviceGetParentPlatformsFromAPI = async () => {
   //! https://api.rawg.io/api/platforms/lists/parents?key=123
-  const parentPlatforms = fetch(`${EXTERNAL_API_CONST.DOMAIN}/platforms/lists/parents?key=${API_KEY}`)
+  const parentPlatforms = await fetch(`${EXTERNAL_API_CONST.DOMAIN}/platforms/lists/parents?key=${API_KEY}`)
     .then((response) => response.json())
     .then((data) => {
       return data
