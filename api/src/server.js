@@ -25,6 +25,10 @@ server.use('/videogames', VideogameRoutes)
 
 server.use('/genres', GenreRoutes)
 
+server.use('/parent-platforms', (req, res) => {
+  res.status(200).send('endpoint parent-platforms')
+})
+
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
 server.use(methodOverride())
