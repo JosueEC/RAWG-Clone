@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 //! Services
 const { serviceGetVideogamesFromAPI } = require('../services/services External API/GetVideogames.service')
 const { serviceGetVideogameByIDFromAPI } = require('../services/services External API/GetVideogameByID.service')
@@ -28,8 +29,17 @@ const getVideogameByID = async (req, res) => {
   }
 }
 
+// TODO: Agregar la propiedad slug al registro para poder utilizarlo para los filtros en el frontend
 const postVideogame = async (req, res) => {
-  res.status(200).send('controller POST videogame')
+  try {
+    const { id, name, released, background_image, website, rating, rating_top, ratings, movies_count, ratings_count, platforms, genres, tags, description_raw } = req.body
+
+    const infoQuery = `${id}, ${name}, ${released}, ${background_image}, ${website}, ${rating}, ${rating_top}, ${ratings}, ${movies_count}, ${ratings_count}, ${platforms}, ${genres}, ${tags}, ${description_raw}`
+
+    res.status(201).send({ status: 'CREATED', data: infoQuery })
+  } catch (error) {
+    res.status(404).send({ status: 'FAILED', error: error.message })
+  }
 }
 
 module.exports = {
