@@ -4,6 +4,7 @@ const { serviceGetChildPlatfromsFromAPI } = require('../services/services Extern
 //! Handlers
 const getChildPlatforms = async (req, res) => {
   try {
+    const childPlatformsFromDatabase = serviceGetChildPlatformsFromDatabase()
     const childPlatforms = await serviceGetChildPlatfromsFromAPI()
     res.status(302).send({ status: 'FOUND', data: childPlatforms })
   } catch (error) {
