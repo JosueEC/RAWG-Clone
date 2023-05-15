@@ -28,7 +28,12 @@ const getVideogameByID = async (req, res) => {
   }
 }
 
+const postVideogame = async (req, res) => {
+  res.status(200).send('controller POST videogame')
+}
+
 module.exports = {
   getVideogames,
-  getVideogameByID
+  getVideogameByID,
+  postVideogame
 }

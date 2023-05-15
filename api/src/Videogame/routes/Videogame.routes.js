@@ -16,9 +16,7 @@ router.get('/', VideogameController.getVideogames)
 router.get('/:idVideogame', VideogameController.getVideogameByID)
 
 // TODO: Crea un nuevo videojuego en nuestra base de datos con la informacion recibida por query
-router.post('/', (req, res) => {
-  res.status(200).send('post -> videogame')
-})
+router.post('/', VideogameController.postVideogame)
 
 // TODO: Actualiza los datos de un videogame existente en nuestra base de datos a traves de un ID recibido en el body, asi como los datos a modificar
 router.put('/', (req, res) => {
