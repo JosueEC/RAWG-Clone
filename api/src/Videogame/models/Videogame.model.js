@@ -59,15 +59,6 @@ module.exports = (database) => {
         isInt: true
       }
     },
-    ratings: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
-      validate: {
-        isNumeric: true,
-        isInt: true
-      }
-    },
     movies_count: {
       type: DataTypes.INTEGER,
       allowNull: false,
