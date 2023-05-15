@@ -1,9 +1,9 @@
 //! Models
-const { Genre } = require('../../../database/database')
+const { genre } = require('../../../database/database')
 
 //! Service
 const serviceGetGenresFromDatabase = async () => {
-  const genres = await Genre.findAll()
+  const genres = await genre.findAll()
   return genres
 }
 

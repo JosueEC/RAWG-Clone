@@ -3,11 +3,11 @@ const { DataTypes } = require('sequelize')
 module.exports = (database) => {
   database.define('genre', {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV1,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       validate: {
-        isUUID: true
+        isNumeric: true,
+        isInt: true
       }
     },
     name: {
