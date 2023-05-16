@@ -1,5 +1,5 @@
 //! Models
-const { tag } = require('../../../../consts')
+const { tag } = require('../../../database/database')
 
 //! Service
 const serviceGetTagsFromDatabase = async () => {
