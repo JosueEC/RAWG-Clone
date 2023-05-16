@@ -4,7 +4,7 @@ const { database } = require('./src/database/database')
 const { SERVER_CONST } = require('./consts')
 
 //! Connection and Synchronization
-database.sync({ force: true })
+database.sync({ alter: true })
   .then(() => {
     server.listen(SERVER_CONST.SERVER_PORT, () => {
       console.log('Server listening on port: ', SERVER_CONST.SERVER_PORT)
