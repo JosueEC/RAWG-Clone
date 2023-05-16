@@ -11,6 +11,7 @@ const VideogameRoutes = require('./Videogame/routes/Videogame.routes')
 const GenreRoutes = require('./Genre/routes/Genre.routes')
 const ParentPlatformRoutes = require('./Platform/routes/ParentPlatform.routes')
 const ChildPlatformRoutes = require('./Platform/routes/ChildPlatform.routes')
+const TagRoutes = require('./Tags/routes/Tag.routes')
 
 //! Instance of Express
 const server = express()
@@ -36,6 +37,8 @@ server.use('/genres', GenreRoutes)
 server.use('/parent-platforms', ParentPlatformRoutes)
 
 server.use('/child-platforms', ChildPlatformRoutes)
+
+server.use('/tags', TagRoutes)
 
 //! Error Middleware
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
