@@ -3,9 +3,8 @@ const { videogame } = require('../../../database/database')
 
 //! Service
 /* eslint-disable camelcase */
-const serviceSaveVideogameInDatabase = async ({ id, name, released, background_image, website, rating, rating_top, movies_count, ratings_count, platforms, genres, tags, description_raw }) => {
+const serviceSaveVideogameInDatabase = async ({ name, released, background_image, website, rating, rating_top, movies_count, ratings_count, platforms, genres, tags, description_raw }) => {
   const newVideogame = await videogame.create({
-    id,
     name,
     released,
     background_image,
@@ -14,13 +13,12 @@ const serviceSaveVideogameInDatabase = async ({ id, name, released, background_i
     rating_top,
     movies_count,
     ratings_count,
-    tags,
     description_raw
   })
 
-  newVideogame.addTags(tags)
-  newVideogame.addGenres(genres)
   newVideogame.addChildPlatforms(platforms)
+  newVideogame.addGenres(genres)
+  newVideogame.addTags(tags)
   return newVideogame
 }
 

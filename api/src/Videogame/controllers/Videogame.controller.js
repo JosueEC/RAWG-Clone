@@ -40,10 +40,10 @@ const getVideogameByID = async (req, res) => {
 // TODO: Agregar la propiedad slug al registro para poder utilizarlo para los filtros en el frontend
 const postVideogame = async (req, res) => {
   try {
-    const { id, name, released, background_image, website, rating, rating_top, ratings, movies_count, ratings_count, platforms, genres, tags, description_raw } = req.body
+    const { name, released, background_image, website, rating, rating_top, movies_count, ratings_count, platforms, genres, tags, description_raw } = req.body
 
     // const infoQuery = `${id}, ${name}, ${released}, ${background_image}, ${website}, ${rating}, ${rating_top}, ${ratings}, ${movies_count}, ${ratings_count}, ${platforms}, ${genres}, ${tags}, ${description_raw}`
-    const newVideogame = await serviceSaveVideogameInDatabase({ id, name, released, background_image, website, rating, rating_top, ratings, movies_count, ratings_count, platforms, genres, tags, description_raw })
+    const newVideogame = await serviceSaveVideogameInDatabase({ name, released, background_image, website, rating, rating_top, movies_count, ratings_count, platforms, genres, tags, description_raw })
 
     res.status(201).send({ status: 'CREATED', data: newVideogame })
   } catch (error) {
