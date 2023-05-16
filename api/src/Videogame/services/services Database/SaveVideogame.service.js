@@ -14,10 +14,11 @@ const serviceSaveVideogameInDatabase = async ({ id, name, released, background_i
     rating_top,
     movies_count,
     ratings_count,
-    // tags,
+    tags,
     description_raw
   })
 
+  newVideogame.addTags(tags)
   newVideogame.addGenres(genres)
   newVideogame.addChildPlatforms(platforms)
   return newVideogame
