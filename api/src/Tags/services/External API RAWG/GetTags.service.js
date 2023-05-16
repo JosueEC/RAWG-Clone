@@ -4,6 +4,9 @@ const { API_KEY } = process.env
 const { EXTERNAL_API_CONST } = require('../../../../consts')
 const fetch = require('node-fetch')
 
+//! Formatters
+const { formatArrayOfTags } = require('./formatters/formatArrayOfTags')
+
 //! Service
 const serviceGetTagsFromAPI = async () => {
   //! https://api.rawg.io/api/tags?key=123&page_size=20
@@ -12,7 +15,8 @@ const serviceGetTagsFromAPI = async () => {
     .then((data) => {
       return data
     })
-  return tags
+  const newFormatTags = formatArrayOfTags(tags)
+  return newFormatTags
 }
 
 module.exports = {
