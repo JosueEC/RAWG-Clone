@@ -31,12 +31,12 @@ const { videogame, genre, childPlatform, tag } = database.models
 //! Establishment of relationships
 
 //! Many-To-Many
-videogame.belongsToMany(genre, { through: 'videogame-genre' })
-genre.belongsToMany(videogame, { through: 'videogame-genre' })
+videogame.belongsToMany(genre, { through: 'game-genre' })
+genre.belongsToMany(videogame, { through: 'game-genre' })
 
 //! Many-To-Many
-videogame.belongsToMany(childPlatform, { through: 'videogame-childPlatform' })
-childPlatform.belongsToMany(videogame, { through: 'videogame-childPlatform' })
+videogame.belongsToMany(childPlatform, { through: 'game-childPlatform' })
+childPlatform.belongsToMany(videogame, { through: 'game-childPlatform' })
 
 //! Many-To-Many
 videogame.belongsToMany(tag, { through: 'game-tag' })
