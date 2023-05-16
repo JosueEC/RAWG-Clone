@@ -1,6 +1,7 @@
 //! Services
 const { serviceGetTagsFromAPI } = require('../services/External API RAWG/GetTags.service')
 const { serviceGetTagsFromDatabase } = require('../services/Local Database/GetTags.service')
+const { serviceSaveTagsInDatabase } = require('../services/Local Database/SaveTags.service')
 
 //! Handlers
 const getTags = async (req, res) => {
@@ -11,6 +12,8 @@ const getTags = async (req, res) => {
       res.status(302).send({ status: 'FOUND', data: tagsFromDatabase })
     } else {
       const tags = await serviceGetTagsFromAPI()
+      serviceSaveTagsInDatabase(tags)
+
       res.status(201).send({ status: 'CREATED', data: tags })
     }
   } catch (error) {
