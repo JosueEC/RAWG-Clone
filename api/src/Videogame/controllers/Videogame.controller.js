@@ -4,6 +4,7 @@ const { serviceGetVideogamesFromAPI } = require('../services/services External A
 const { serviceGetVideogameByIDFromAPI } = require('../services/services External API/GetVideogameByID.service')
 const { serviceGetVideogamesByQueryFromAPI } = require('../services/services External API/GetVideogamesByQuery.service')
 const { serviceSaveVideogameInDatabase } = require('../services/services Database/SaveVideogame.service')
+const { serviceGetVideogameByIDFromDatabase } = require('../services/services Database/GetVideogameByID.service')
 
 //! Handlers
 const getVideogames = async (req, res) => {
@@ -23,7 +24,13 @@ const getVideogames = async (req, res) => {
 const getVideogameByID = async (req, res) => {
   try {
     const { idVideogame } = req.params
-    const videogame = await serviceGetVideogameByIDFromAPI(idVideogame)
+
+    const regex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
+
+    const videogame = (regex.test(idVideogame))
+      ? await serviceGetVideogameByIDFromDatabase(idVideogame)
+      : await serviceGetVideogameByIDFromAPI(idVideogame)
+
     res.status(200).send({ status: 'FOUND', data: videogame })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
