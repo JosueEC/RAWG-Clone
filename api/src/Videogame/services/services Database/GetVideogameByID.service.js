@@ -1,5 +1,5 @@
 //! Models
-const { videogame, childPlatform, genre } = require('../../../database/database')
+const { videogame, childPlatform, genre, tag } = require('../../../database/database')
 
 //! Service
 const serviceGetVideogameByIDFromDatabase = async (idVideogame) => {
@@ -12,6 +12,11 @@ const serviceGetVideogameByIDFromDatabase = async (idVideogame) => {
       },
       {
         model: genre,
+        attributes: ['slug'],
+        through: { attributes: [] }
+      },
+      {
+        model: tag,
         attributes: ['slug'],
         through: { attributes: [] }
       }
