@@ -20,6 +20,14 @@ module.exports = (database) => {
         len: [2, 50]
       }
     },
+    slug: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        len: [2, 50]
+      }
+    },
     released: {
       type: DataTypes.STRING,
       allowNull: false
