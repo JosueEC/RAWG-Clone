@@ -2,6 +2,7 @@ function formatVideogame (videogame) {
   const game = {
     id: videogame.id,
     name: videogame.name,
+    slug: videogame.slug,
     released: videogame.released,
     background_image: videogame.background_image,
     website: videogame.website,
