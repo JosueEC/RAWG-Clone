@@ -11,8 +11,8 @@ function formatVideogame (videogame) {
     movies_count: videogame.movies_count,
     ratings_count: videogame.ratings_count,
     platforms: videogame.childPlatforms.map((platform) => platform.name),
-    genres: videogame.genres.map((genre) => genre.slug),
-    tags: videogame.tags.map((tag) => tag.slug),
+    genres: videogame.genres.map((genre) => genre.name),
+    tags: videogame.tags.map((tag) => tag.name),
     description_raw: videogame.description_raw
   }
   return game

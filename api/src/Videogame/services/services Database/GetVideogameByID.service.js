@@ -2,7 +2,7 @@
 const { videogame, childPlatform, genre, tag } = require('../../../database/database')
 
 //! Formatter
-const { formatVideogame } = require('./formatters/formatVideogame')
+const { formatVideogame } = require('./formatters/formatSingleVideogame')
 
 //! Service
 const serviceGetVideogameByIDFromDatabase = async (idVideogame) => {
