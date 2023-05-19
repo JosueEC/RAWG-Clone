@@ -37,12 +37,9 @@ function formatArrayOfVideogames (arrayOfVideogames) {
 // }
 
 function formatArrayOfPlatforms (arrayOfPlatforms) {
-  const platforms = arrayOfPlatforms.map((item) => {
-    return {
-      name: item.platform.name,
-      slug: item.platform.slug
-      // released_at: item.released_at
-    }
+  const platforms = []
+  arrayOfPlatforms.forEach((itemPlatform) => {
+    platforms.push(itemPlatform.platform.slug)
   })
 
   return platforms
