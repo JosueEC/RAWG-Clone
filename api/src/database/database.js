@@ -18,17 +18,17 @@ const database = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:
   native: false
 })
 
-//! Creation of models/tables
+//! Models/Tables creation
 defineModelVideogame(database)
 defineModelGenre(database)
 defineModelParentPlatform(database)
 defineModelChildPlatform(database)
 defineModelTag(database)
 
-//! import of models
+//! Models import
 const { videogame, genre, childPlatform, tag } = database.models
 
-//! Establishment of relationships
+//! Relationships establishment
 
 //! Many-To-Many
 videogame.belongsToMany(genre, { through: 'game-genre' })

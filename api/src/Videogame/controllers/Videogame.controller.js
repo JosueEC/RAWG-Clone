@@ -14,18 +14,18 @@ const getVideogames = async (req, res) => {
   try {
     const { name } = req.query
 
-    let allVideogames = []
+    let videogames = []
     if (name) {
       const videogamesFromAPI = await serviceGetVideogamesByQueryFromAPI(name)
       const videogamesFromDatabase = await serviceGetVideogamesByQueryFromDatabase(name)
-      allVideogames = videogamesFromDatabase.concat(videogamesFromAPI)
+      videogames = videogamesFromDatabase.concat(videogamesFromAPI)
     } else {
       const videogamesFromAPI = await serviceGetVideogamesFromAPI()
       const videogamesFromDatabase = await serviceGetVideogamesFromDatabase()
-      allVideogames = videogamesFromDatabase.concat(videogamesFromAPI)
+      videogames = videogamesFromDatabase.concat(videogamesFromAPI)
     }
 
-    res.status(302).send({ status: 'FOUND', data: allVideogames })
+    res.status(302).send({ status: 'FOUND', data: videogames })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
   }

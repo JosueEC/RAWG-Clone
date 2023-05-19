@@ -6,7 +6,8 @@ const GenreController = require('../controllers/Genre.controller')
 const router = Router()
 
 //! HTTP Requests
-// TODO: Obtiene todos los genres desde la API externa de RAWG
+
+// Devuelve todos los genres que estan en la base de datos. En una primera instancia, cunado esta esta vacia, los obtiene de la API de RAWG, los almacena en la base de datos y los devuelve
 router.get('/', GenreController.getGenres)
 
 module.exports = router

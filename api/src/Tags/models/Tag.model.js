@@ -2,7 +2,6 @@
 const { DataTypes } = require('sequelize')
 
 //! Connection and define function
-
 module.exports = (database) => {
   database.define('tag', {
     id: {

@@ -40,18 +40,6 @@ server.use('/child-platforms', ChildPlatformRoutes)
 
 server.use('/tags', TagRoutes)
 
-const { serviceGetVideogamesByQueryFromDatabase } = require('./Videogame/services/services Database/GetVideogamesByQuery')
-server.use('/query', async (req, res) => {
-  try {
-    const { name } = req.query
-
-    const videogames = await serviceGetVideogamesByQueryFromDatabase(name)
-    res.status(200).send({ status: 'OK', data: videogames })
-  } catch (error) {
-    res.status(404).send({ status: 'FAILED', error: error.message })
-  }
-})
-
 //! Error Middleware
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
