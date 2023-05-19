@@ -1,9 +1,12 @@
+const { ORIGIN_CONST } = require('../../../../../consts')
+
 function formatArrayOfVideogames (arrayOfVideogames) {
   const videogames = arrayOfVideogames.map((videogame) => {
     return {
       id: videogame.id,
       slug: videogame.slug,
       name: videogame.name,
+      origin: ORIGIN_CONST.DATABASE,
       released: videogame.released,
       background_image: videogame.background_image,
       rating: videogame.rating,

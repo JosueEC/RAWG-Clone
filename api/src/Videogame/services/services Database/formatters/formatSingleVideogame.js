@@ -1,8 +1,11 @@
+const { ORIGIN_CONST } = require('../../../../../consts')
+
 function formatVideogame (videogame) {
   const game = {
     id: videogame.id,
     name: videogame.name,
     slug: videogame.slug,
+    origin: ORIGIN_CONST.DATABASE,
     released: videogame.released,
     background_image: videogame.background_image,
     website: videogame.website,

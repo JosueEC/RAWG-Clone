@@ -11,7 +11,14 @@ const EXTERNAL_API_CONST = Object.freeze({
   PAGE_SIZE: 'page_size=10'
 })
 
+//! Origin Results Constants
+const ORIGIN_CONST = Object.freeze({
+  DATABASE: 'database',
+  RAWG: 'rawg'
+})
+
 module.exports = {
   SERVER_CONST,
-  EXTERNAL_API_CONST
+  EXTERNAL_API_CONST,
+  ORIGIN_CONST
 }
