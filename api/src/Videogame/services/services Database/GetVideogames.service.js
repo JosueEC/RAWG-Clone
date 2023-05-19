@@ -1,6 +1,9 @@
 //! Models
 const { videogame, childPlatform, genre, tag } = require('../../../database/database')
 
+//! Formatters
+const { formatArrayOfVideogames } = require('../services Database/formatters/formatArrayOfVideogames')
+
 //! Service
 const serviceGetVideogamesFromDatabase = async () => {
   const videogames = await videogame.findAll({
@@ -22,7 +25,8 @@ const serviceGetVideogamesFromDatabase = async () => {
       }
     ]
   })
-  return videogames
+  const newFormatVideogames = formatArrayOfVideogames(videogames)
+  return newFormatVideogames
 }
 
 module.exports = {
