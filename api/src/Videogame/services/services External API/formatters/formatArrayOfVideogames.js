@@ -66,6 +66,7 @@ function formatArrayOfTags (arrayOfTags) {
 module.exports = {
   formatArrayOfVideogames,
   // formatArrayOfRatings,
+  formatArrayOfPlatforms,
   formatArrayOfGenres,
   formatArrayOfTags
 }
