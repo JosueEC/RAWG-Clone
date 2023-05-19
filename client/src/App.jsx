@@ -4,15 +4,19 @@ import { Routes, Route } from 'react-router-dom'
 //! routes constants
 import { ROUTER } from '../consts.js'
 
+//! pages imports
+import Landing from './pages/Landing/Landing.jsx'
+
 import './App.css'
 
-function App() {
+function App () {
   return (
     <>
       <Routes>
-        <Route 
+
+        <Route
           path={ROUTER.LANDING}
-          element={<h2>Landing</h2>}
+          element={<Landing />}
         />
         <Route
           path={ROUTER.HOME}
