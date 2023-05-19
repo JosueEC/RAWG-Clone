@@ -10,7 +10,7 @@ function formatVideogame (videogame) {
     rating_top: videogame.rating_top,
     movies_count: videogame.movies_count,
     ratings_count: videogame.ratings_count,
-    platforms: videogame.childPlatforms,
+    platforms: videogame.childPlatforms.map((platform) => platform.name),
     genres: videogame.genres.map((genre) => genre.slug),
     tags: videogame.tags.map((tag) => tag.slug),
     description_raw: videogame.description_raw
