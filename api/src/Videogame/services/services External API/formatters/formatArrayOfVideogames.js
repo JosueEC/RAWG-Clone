@@ -15,13 +15,13 @@ function formatArrayOfVideogames (arrayOfVideogames) {
     }
   })
 
-  const newFormat = {
-    next: arrayOfVideogames.next,
-    previous: arrayOfVideogames.previous,
-    results
-  }
+  // const newFormat = {
+  //   next: arrayOfVideogames.next,
+  //   previous: arrayOfVideogames.previous,
+  //   results
+  // }
 
-  return newFormat
+  return results
 }
 
 // function formatArrayOfRatings (arrayOfRatings) {
