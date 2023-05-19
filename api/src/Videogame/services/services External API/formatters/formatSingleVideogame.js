@@ -1,5 +1,3 @@
-const formatter = require('./formatArrayOfVideogames')
-
 function formatSingleVideogame (objVideogame) {
   const videogame = {
     id: objVideogame.id,
@@ -9,30 +7,15 @@ function formatSingleVideogame (objVideogame) {
     website: objVideogame.website,
     rating: objVideogame.rating,
     rating_top: objVideogame.rating_top,
-    // ratings: formatter.formatArrayOfRatings(objVideogame.ratings),
     movies_count: objVideogame.movies_count,
     ratings_count: objVideogame.movies_count,
-    platforms: formatter.formatArrayOfPlatforms(objVideogame.platforms),
-    genres: formatter.formatArrayOfGenres(objVideogame.genres),
-    tags: formatter.formatArrayOfTags(objVideogame.tags),
+    platforms: objVideogame.platforms.map((itemPlatform) => itemPlatform.platform.name),
+    genres: objVideogame.genres.map((genre) => genre.name),
+    tags: objVideogame.tags.map((tag) => tag.name),
     description_raw: objVideogame.description_raw
   }
   return videogame
 }
-
-// function formatArrayOfPlatforms (arrayOfPlatforms) {
-//   const platforms = arrayOfPlatforms.map((item) => {
-//     return {
-//       id: item.platform.id,
-//       name: item.platform.name,
-//       image_background: item.platform.image_background
-//       released_at: item.released_at,
-//       requirements: item.requirements
-//     }
-//   })
-
-//   return platforms
-// }
 
 module.exports = {
   formatSingleVideogame
