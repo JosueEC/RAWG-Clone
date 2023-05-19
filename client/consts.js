@@ -1,5 +1,5 @@
 const ROUTER = Object.freeze({
-  LANDING: '/landing',
+  LANDING: '/',
   HOME: '/home',
   DETAILS: '/details/:videogameID',
   FORM: '/form'
