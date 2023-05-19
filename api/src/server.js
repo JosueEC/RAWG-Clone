@@ -43,10 +43,8 @@ server.use('/tags', TagRoutes)
 const { serviceGetVideogamesFromDatabase } = require('./Videogame/services/services Database/GetVideogames.service')
 server.use('/videogames-database', async (req, res) => {
   try {
-    const { count, rows } = await serviceGetVideogamesFromDatabase()
-    console.log('count: ', count)
-    console.log('rows: ', rows)
-    res.status(200).send({ status: 'OK', data: rows })
+    const videogames = await serviceGetVideogamesFromDatabase()
+    res.status(200).send({ status: 'OK', data: videogames })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
   }
