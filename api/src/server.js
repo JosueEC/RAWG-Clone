@@ -40,10 +40,12 @@ server.use('/child-platforms', ChildPlatformRoutes)
 
 server.use('/tags', TagRoutes)
 
-const { serviceGetVideogamesFromDatabase } = require('./Videogame/services/services Database/GetVideogames.service')
-server.use('/videogames-database', async (req, res) => {
+const { serviceGetVideogamesByQueryFromDatabase } = require('./Videogame/services/services Database/GetVideogamesByQuery')
+server.use('/query-database', async (req, res) => {
   try {
-    const videogames = await serviceGetVideogamesFromDatabase()
+    const { name } = req.query
+
+    const videogames = await serviceGetVideogamesByQueryFromDatabase(name)
     res.status(200).send({ status: 'OK', data: videogames })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
