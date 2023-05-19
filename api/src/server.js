@@ -41,7 +41,7 @@ server.use('/child-platforms', ChildPlatformRoutes)
 server.use('/tags', TagRoutes)
 
 const { serviceGetVideogamesByQueryFromDatabase } = require('./Videogame/services/services Database/GetVideogamesByQuery')
-server.use('/query-database', async (req, res) => {
+server.use('/query', async (req, res) => {
   try {
     const { name } = req.query
 
