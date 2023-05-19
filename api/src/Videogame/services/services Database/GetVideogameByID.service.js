@@ -15,12 +15,12 @@ const serviceGetVideogameByIDFromDatabase = async (idVideogame) => {
       },
       {
         model: genre,
-        attributes: ['slug'],
+        attributes: ['name'],
         through: { attributes: [] }
       },
       {
         model: tag,
-        attributes: ['slug'],
+        attributes: ['name'],
         through: { attributes: [] }
       }
     ]
