@@ -7,22 +7,25 @@ const { serviceGetVideogamesByQueryFromAPI } = require('../services/services Ext
 const { serviceSaveVideogameInDatabase } = require('../services/services Database/SaveVideogame.service')
 const { serviceGetVideogameByIDFromDatabase } = require('../services/services Database/GetVideogameByID.service')
 const { serviceGetVideogamesFromDatabase } = require('../services/services Database/GetVideogames.service')
+const { serviceGetVideogamesByQueryFromDatabase } = require('../services/services Database/GetVideogamesByQuery')
 
 //! Handlers
 const getVideogames = async (req, res) => {
   try {
     const { name } = req.query
 
-    let videogames = []
+    let allVideogames = []
     if (name) {
-      videogames = await serviceGetVideogamesByQueryFromAPI(name)
+      const videogamesFromAPI = await serviceGetVideogamesByQueryFromAPI(name)
+      const videogamesFromDatabase = await serviceGetVideogamesByQueryFromDatabase(name)
+      allVideogames = videogamesFromDatabase.concat(videogamesFromAPI)
     } else {
       const videogamesFromAPI = await serviceGetVideogamesFromAPI()
       const videogamesFromDatabase = await serviceGetVideogamesFromDatabase()
-      videogames = videogamesFromDatabase.concat(videogamesFromAPI)
+      allVideogames = videogamesFromDatabase.concat(videogamesFromAPI)
     }
 
-    res.status(302).send({ status: 'FOUND', data: videogames })
+    res.status(302).send({ status: 'FOUND', data: allVideogames })
   } catch (error) {
     res.status(404).send({ status: 'FAILED', error: error.message })
   }
