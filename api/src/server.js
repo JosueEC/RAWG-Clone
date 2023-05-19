@@ -40,6 +40,18 @@ server.use('/child-platforms', ChildPlatformRoutes)
 
 server.use('/tags', TagRoutes)
 
+const { serviceGetVideogamesFromDatabase } = require('./Videogame/services/services Database/GetVideogames.service')
+server.use('/videogames-database', async (req, res) => {
+  try {
+    const { count, rows } = await serviceGetVideogamesFromDatabase()
+    console.log('count: ', count)
+    console.log('rows: ', rows)
+    res.status(200).send({ status: 'OK', data: rows })
+  } catch (error) {
+    res.status(404).send({ status: 'FAILED', error: error.message })
+  }
+})
+
 //! Error Middleware
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 server.use(bodyParser.json({ limit: '50mb' }))
