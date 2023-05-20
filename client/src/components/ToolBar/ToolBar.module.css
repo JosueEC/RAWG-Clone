@@ -1,4 +1,6 @@
 .toolbar {
+  position: fixed;
+  width: 100%;
   background-color: var(--negro);
   color: #fff;
   display: flex;
