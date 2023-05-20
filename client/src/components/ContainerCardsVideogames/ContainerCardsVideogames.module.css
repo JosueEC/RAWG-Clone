@@ -1,0 +1,28 @@
+.heading {
+  text-align: center;
+  background: var(--verde);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.detalles {
+  padding-left: 0;
+}
+
+.detalles .cajaContenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+.detalles .labelResults {
+  font-size: 1.5rem;
+  color: #666;
+  margin-left: 5rem;
+}
