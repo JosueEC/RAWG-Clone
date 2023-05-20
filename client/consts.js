@@ -6,7 +6,7 @@ const ROUTER = Object.freeze({
 })
 
 const API = Object.freeze({
-  DOMAIN: 'https://api.rawg.io/api'
+  DOMAIN: 'http://localhost:3001'
 })
 
 export {
