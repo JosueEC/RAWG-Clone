@@ -1,5 +1,6 @@
 //! react-router-dom imports
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 //! routes constants
 import { ROUTER } from '../consts.js'
@@ -11,9 +12,9 @@ import Backdrop from './components/Backdrop/Backdrop.jsx'
 
 //! pages imports
 import Landing from './pages/Landing/Landing.jsx'
+import Home from './pages/Home/Home.jsx'
 
 import './App.css'
-import { useState } from 'react'
 
 function App () {
   const [sidebar, setSidebar] = useState(false)
@@ -26,6 +27,7 @@ function App () {
       <ToolBar openSidebar={toggleSidebar} />
       <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
       <SideBar sidebar={sidebar} />
+
       <Routes>
         <Route
           path={ROUTER.LANDING}
@@ -33,7 +35,7 @@ function App () {
         />
         <Route
           path={ROUTER.HOME}
-          element={<h2>Home</h2>}
+          element={<Home />}
         />
         <Route
           path={ROUTER.DETAILS}

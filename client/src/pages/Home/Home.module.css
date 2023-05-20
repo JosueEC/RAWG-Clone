@@ -1,0 +1,8 @@
+.home {
+  border: var(--debug);
+  padding-top: 7rem;
+}
+
+.titulo {
+  color: #fff;
+}
