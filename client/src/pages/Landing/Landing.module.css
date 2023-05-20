@@ -1,0 +1,226 @@
+.containerLanding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./assets/fondo-landing.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* border: var(--debug); */
+}
+
+.containerLanding .image {
+  animation: fadeIn 1s ease 0s 1 normal forwards;
+  /* border: var(--debug); */
+}
+
+.containerLanding .image img {
+  width: 40vw;
+}
+
+.containerLanding .content {
+  animation: fadeIn 1s ease 0s 1 normal forwards;
+  background-color: var(--negro);
+  width: 95%;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5em;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .13), 0 1px 1px 0 rgba(0, 0, 0, .11);
+  border-radius: 0.5rem;
+  margin: 2rem;
+  /* border: var(--debug); */
+}
+
+.containerLanding .content h3 {
+  font-size: 5rem;
+  color: var(--principal);
+  text-transform: uppercase;
+  font-family: var(--fontTitulo);
+  font-weight: bolder;
+  /* border: var(--debug); */
+}
+
+.containerLanding .content h3 .marked {
+  font-size: 5rem;
+  color: var(--blanco);
+  text-transform: uppercase;
+  font-family: var(--fontTitulo);
+  font-weight: bolder;
+}
+
+.containerLanding .content span {
+  font-size: 2rem;
+  color: var(--blanco);
+  text-transform: uppercase;
+  font-family: var(--fontParrafo);
+  line-height: 2rem;
+  /* border: var(--debug); */
+}
+
+.containerLanding .content span .marked {
+  color: var(--principal);
+  font-weight: bolder;
+}
+
+.containerLanding .content p {
+  font-size: 1.3rem;
+  color: var(--blanco);
+  padding: 2rem 0;
+  font-family: var(--fontParrafo);
+  line-height: 1.5rem;
+  /* border: var(--debug); */
+}
+
+.containerLanding .content .buttonStart {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--principal);
+  color: var(--blanco);
+  font-family: var(--fontBoton);
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .13), 0 1px 1px 0 rgba(0, 0, 0, .11);
+  transition: 0.5s;
+}
+
+.containerLanding .content .buttonStart:hover {
+  background-color: var(--gris);
+}
+
+
+@media only screen and (min-width: 280px) and (max-width: 540px) {  /* MOVILES*/
+  .containerLanding {
+    flex-flow: column-reverse;
+    border: solid 2px yellow;
+  }
+
+  .containerLanding .content p {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .containerLanding .content .buttonStart {
+    font-size: 2rem;
+  }
+
+  .containerLanding .image img {
+    width: 100%;
+  }
+
+  .containerLanding .content {
+    height: 300px;
+  }
+
+  .containerLanding .content h3 {
+    font-size: 5rem;
+  }
+
+  .containerLanding .content h3 span {
+    font-size: 7rem;
+  }
+}
+
+@media only screen and (min-width: 540px) and (max-width: 768px) {  /* SURFACE DUO (CASO ESPECIAL)*/
+  .containerLanding {
+    border: solid 2px blue;
+  }
+
+  .containerLanding .image img {
+    width: 90%;
+  }
+
+  .containerLanding .image {
+    padding-left: 6rem;
+  }
+
+  .containerLanding .content {
+    height: 490px;
+    width: 450px;
+  }
+
+  .containerLanding .content p {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+
+  .containerLanding .content .buttonStart {
+    font-size: 1.5rem;
+  }
+
+  .containerLanding .content h3 {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (min-width:768px) and (max-width: 1024px) {  /* IPADS VERTICALES*/
+  .containerLanding {
+    flex-flow: column-reverse;
+    border: solid green 2px;
+  }
+
+  .containerLanding .image {
+    padding-left: 8rem;
+  }
+
+  .containerLanding .image img {
+    width: 80%;
+  }
+
+  .containerLanding .content {
+    height: 420px;
+    width: 600px;
+  }
+
+  .containerLanding .content p {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+
+  .containerLanding .content .buttonStart {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width:1024px) and (max-width:1280px) { /* IPADS HORIZONTALES*/
+  .containerLanding {
+    border: var(--debug);
+    flex-flow: row;
+  }
+
+  .containerLanding .image img {
+    width: 40vw;
+  }
+
+  .containerLanding .content {
+    height: 520px;
+    width: 700px;
+  }
+
+  .containerLanding .content p {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+  }
+
+  .containerLanding .content .buttonStart {
+    font-size: 1.5rem;
+  }
+
+  .containerLanding .content h3 {
+    font-size: 5rem;
+  }
+
+  .containerLanding .content h3 .marked {
+    font-size: 5rem;
+  }
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

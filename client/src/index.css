@@ -1,1 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind&family=Khand:wght@700&family=Lato&display=swap');
 
+:root {
+  --negro: #1B2223;
+  --gris: #3A4F50;
+  --principal: #0080bf;
+  --blanco: #F4FEFD;
+  --degradadoLineal: linear-gradient(90deg, var(--morado), var(--gris));
+
+  --fontTitulo: 'Khand', sans-serif;
+  --fontParrafo: 'Hind', sans-serif;
+  --fontBoton: 'Loto', sans-serif;
+
+  --debug: solid 2px red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+/* *::selection {
+  background: var(--limon);
+  color: white;
+} */
+
+html {
+  font-size: 90%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--negro);
+}
+
+section {
+  min-height: 100vh;
+  padding: 0 9%;
+  padding-top: 2rem;
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+@media(max-width: 1200px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media(max-width: 990px) {
+  section {
+    padding: 0 3%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
