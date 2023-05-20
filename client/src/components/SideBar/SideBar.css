@@ -1,11 +1,12 @@
 .sidebar {
   position: absolute;
+  z-index: 3;
   background-color: var(--negro);
   color: #fff;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 280px;
+  width: 200px;
   transform: translateX(-100%);
   transition: all 0.45s;
   font-family: var(--fontParrafo);
