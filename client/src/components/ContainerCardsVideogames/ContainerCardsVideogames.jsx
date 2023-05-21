@@ -1,9 +1,13 @@
-import React from 'react'
+import { React, useEffect } from 'react'
+import { getVideogames } from '../../redux/actions'
 
 import styles from './ContainerCardsVideogames.module.css'
 import CardVideogame from '../CardVideogame/CardVideogame'
 
 export default function ContainerCardsDiet () {
+  useEffect(() => {
+    getVideogames()
+  }, [])
   return (
     <section className={styles.detalles} id='detalles'>
       <h1 className={styles.heading}>RECIPES</h1>
