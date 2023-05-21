@@ -2,10 +2,10 @@ import { API } from '../../consts'
 
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES'
 
-const getVideogames = () => {
+const getVideogames = async () => {
   const URL = `${API.DOMAIN}/videogames`
 
-  const videogames = fetch(URL)
+  const videogames = await fetch(URL)
     .then((response) => response.json())
     .then((data) => {
       console.info('Fetching GET Videogames')
