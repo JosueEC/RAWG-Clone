@@ -1,8 +1,7 @@
 //! Server Constants
 const SERVER_CONST = Object.freeze({
   SERVER_PORT: '3001',
-  CORS_PORT: '3000',
-  CORS_DOMAIN: 'http://localhost'
+  CORS_DOMAIN: 'http://localhost:5173'
 })
 
 //! External API Constants

@@ -1,10 +1,11 @@
 //! Express and Middlewares
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-const { SERVER_CONST } = require('../consts')
+// const { SERVER_CONST } = require('../consts')
 
 //! Routes Modules
 const VideogameRoutes = require('./Videogame/routes/Videogame.routes')
@@ -17,15 +18,16 @@ const TagRoutes = require('./Tags/routes/Tag.routes')
 const server = express()
 
 //! CORS Configuration
-server.use((req, res, next) => {
-  res.header('Acces-Control-Allow-Origin', `${SERVER_CONST.CORS_DOMAIN}:${SERVER_CONST.CORS_PORT}`)
-  res.header('Acces-Control-Allow-Credentials', 'true')
-  res.header('Acces-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  res.header('Acces-Controll-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
-  next()
-})
+// server.use((req, res, next) => {
+//   res.header('Acces-Control-Allow-Origin', '*')
+//   res.header('Acces-Control-Allow-Credentials', 'true')
+//   res.header('Acces-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+//   res.header('Acces-Controll-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+//   next()
+// })
 
 //! Middlewares
+server.use(cors())
 server.use(express.json())
 server.use(morgan('dev'))
 
