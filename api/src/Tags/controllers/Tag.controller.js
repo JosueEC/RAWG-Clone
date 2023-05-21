@@ -1,7 +1,7 @@
 //! Services
-const { serviceGetTagsFromAPI } = require('../services/External API RAWG/GetTags.service')
-const { serviceGetTagsFromDatabase } = require('../services/Local Database/GetTags.service')
-const { serviceSaveTagsInDatabase } = require('../services/Local Database/SaveTags.service')
+const { serviceGetTagsFromAPI } = require('../services/services API RAGW/GetTags.service')
+const { serviceGetTagsFromDatabase } = require('../services/services Database/GetTags.service')
+const { serviceSaveTagsInDatabase } = require('../services/services Database/SaveTags.service')
 
 //! Handlers
 const getTags = async (req, res) => {

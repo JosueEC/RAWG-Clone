@@ -7,7 +7,7 @@ const { serviceGetVideogamesByQueryFromAPI } = require('../services/services Ext
 const { serviceSaveVideogameInDatabase } = require('../services/services Database/SaveVideogame.service')
 const { serviceGetVideogameByIDFromDatabase } = require('../services/services Database/GetVideogameByID.service')
 const { serviceGetVideogamesFromDatabase } = require('../services/services Database/GetVideogames.service')
-const { serviceGetVideogamesByQueryFromDatabase } = require('../services/services Database/GetVideogamesByQuery')
+const { serviceGetVideogamesByQueryFromDatabase } = require('../services/services Database/GetVideogamesByQuery.service')
 
 //! Handlers
 const getVideogames = async (req, res) => {
