@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getVideogamesByName } from '../../redux/actions'
+import { getVideogamesByName, getVideogames } from '../../redux/actions'
 
 import styles from './SearchBar.module.css'
 
@@ -9,12 +9,17 @@ export default function SearchBar () {
   const dispatch = useDispatch()
 
   function handleChange (event) {
-    const textQuery = event.target.value
-    setQuery(textQuery)
+    const queryText = event.target.value
+    setQuery(queryText)
   }
 
   function handleClick (event) {
-    dispatch(getVideogamesByName(query))
+    const nameButton = event.target.name
+    if (nameButton === 'btnSearch') {
+      dispatch(getVideogamesByName(query))
+    } else {
+      dispatch(getVideogames())
+    }
   }
 
   return (
@@ -22,7 +27,7 @@ export default function SearchBar () {
       <div className={styles.searchContainer}>
         <input type='search' className={styles.searchInput} placeholder='Search 849,600 games' onChange={handleChange} />
         <button name='btnSearch' className={styles.button} onClick={handleClick}>Search</button>
-        <button className={styles.button} name='btnAllRecipes'>All Recipes</button>
+        <button name='btnAllVideogames' className={styles.button} onClick={handleClick}>All Videogames</button>
       </div>
     </div>
   )
