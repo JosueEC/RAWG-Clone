@@ -1,10 +1,36 @@
 /* eslint-disable no-undef */
-import { React } from 'react'
+import { React, useState } from 'react'
 
 import styles from './FormNewVideogame.module.css'
 import imgFormKratos from './assets/logo-form.png'
 
 export default function FormRecipe () {
+  const [dataForm, setDataForm] = useState({
+    name: '',
+    slug: '',
+    released: '',
+    background_image: '',
+    website: '',
+    rating: 0,
+    rating_top: 0,
+    movies_count: 0,
+    ratings_count: 0,
+    platforms: [],
+    genres: [],
+    tags: [],
+    description_raw: ''
+  })
+
+  function handleChange (event) {
+    const { key, value } = event.target
+
+    setDataForm({
+      ...dataForm,
+      [key]: value
+    })
+    console.log(dataForm)
+  }
+
   return (
     <section className={styles.formRecipe}>
       <div className={styles.image}>
@@ -13,16 +39,20 @@ export default function FormRecipe () {
       <form>
         <h1 className={styles.heading}>New Videogame</h1>
         <div className={styles.inputcaja}>
-          <input type='text' name='name' id='name' required />
+          <input type='text' name='name' id='name' onChange={handleChange} required />
           <label htmlFor='name'>Name Videogame</label>
         </div>
         <div className={styles.inputcaja}>
-          <input type='text' name='background_image' id='background_image' required />
+          <input type='text' name='background_image' id='background_image' onChange={handleChange} required />
           <label htmlFor='background_image'>Image</label>
         </div>
         <div className={styles.inputcaja}>
-          <input type='text' name='website' id='website' required />
+          <input type='text' name='website' id='website' onChange={handleChange} required />
           <label htmlFor='website'>Website</label>
+        </div>
+        <div className={styles.inputcaja}>
+          <input type='text' name='released' id='released' onChange={handleChange} required />
+          <label htmlFor='released'>Released</label>
         </div>
 
         <div className={styles.containerCheckbox}>
@@ -160,11 +190,11 @@ export default function FormRecipe () {
         </div>
 
         <div className={styles.inputcaja}>
-          <textarea required name='about' id='about' cols={30} rows={10} />
+          <textarea required name='about' id='about' cols={30} rows={10} onChange={handleChange} />
           <label htmlFor='about'>About the Game</label>
         </div>
 
-        <button type='submit' className={styles.btn}>Crete Recipe</button>
+        <button type='submit' className={styles.btn}>Create Videogame</button>
       </form>
     </section>
   )
