@@ -14,6 +14,7 @@ import Backdrop from './components/Backdrop/Backdrop.jsx'
 import Landing from './pages/Landing/Landing.jsx'
 import Home from './pages/Home/Home.jsx'
 import Details from './pages/Details/Details.jsx'
+import FormNewVideogame from './pages/FormNewVideogame/FormNewVideogame.jsx'
 
 import './App.css'
 
@@ -44,7 +45,7 @@ function App () {
         />
         <Route
           path={ROUTER.FORM}
-          element={<h2>Form</h2>}
+          element={<FormNewVideogame />}
         />
 
       </Routes>
