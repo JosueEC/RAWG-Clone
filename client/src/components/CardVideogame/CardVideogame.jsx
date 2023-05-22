@@ -3,13 +3,27 @@ import React from 'react'
 
 import styles from './CardVideogame.module.css'
 
-export default function CardDiet ({ id, slug, name, origin, released, background_image, rating, rating_top, platforms, genres, tags }) {
+export default function CardDiet ({ id, name, released, background_image, platforms, genres }) {
   return (
-    <div className={styles.caja} key={id}>
-      <div className={styles.containerImage}>
+    <div className={styles.card}>
+      <div className={styles.image}>
         <img src={background_image} alt='game' />
       </div>
-      <h3>{name}</h3>
+      <div className={styles.content}>
+        <div className={styles.title}>
+          <h3>{name}</h3>
+        </div>
+        <div className={styles.body}>
+          <p>{released}</p><br />
+          <p>{platforms.join(', ')}</p><br />
+          <p>{genres.join(', ')}</p>
+        </div>
+      </div>
+      <div className={styles.button}>
+        <button>
+          <a>See Details</a>
+        </button>
+      </div>
     </div>
   )
 }

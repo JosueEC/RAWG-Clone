@@ -7,11 +7,10 @@ import styles from './Home.module.css'
 
 export default function Home () {
   return (
-    <section className={styles.home}>
-      <h2 className={styles.titulo}>Vista del Home</h2>
+    <div className={styles.home}>
       <ContainerCardsVideogames>
         <CardVideogame />
       </ContainerCardsVideogames>
-    </section>
+    </div>
   )
 }

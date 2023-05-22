@@ -15,9 +15,8 @@ export default function ContainerCardsDiet () {
   }, [])
 
   return (
-    <section className={styles.detalles} id='detalles'>
-      <h1 className={styles.heading}>Videogames</h1>
-      <div className={styles.cajaContenedor}>
+    <section className={styles.videogames}>
+      <div className={styles.content}>
         {
           videogames
             ? (
