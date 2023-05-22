@@ -1,6 +1,7 @@
 import { API } from '../../consts'
 
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES'
+export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_GAME'
 
 const getVideogames = () => {
   const URL = `${API.DOMAIN}/videogames`
@@ -15,6 +16,18 @@ const getVideogames = () => {
   }
 }
 
+const getVideogamesByName = async (queryName) => {
+  const URL = `${API.DOMAIN}/videogames?name=${queryName}`
+
+  await fetch(URL)
+    .then((response) => response.json())
+    .then((results) => {
+      console.info('Fetching GET Videogames by name')
+      console.log(results)
+    })
+}
+
 export {
-  getVideogames
+  getVideogames,
+  getVideogamesByName
 }
