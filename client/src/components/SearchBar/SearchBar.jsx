@@ -1,10 +1,12 @@
 import { React, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { getVideogamesByName } from '../../redux/actions'
 
 import styles from './SearchBar.module.css'
 
 export default function SearchBar () {
   const [query, setQuery] = useState('')
+  const dispatch = useDispatch()
 
   function handleChange (event) {
     const textQuery = event.target.value
@@ -12,7 +14,7 @@ export default function SearchBar () {
   }
 
   function handleClick (event) {
-    getVideogamesByName(query)
+    dispatch(getVideogamesByName(query))
   }
 
   return (

@@ -16,15 +16,17 @@ const getVideogames = () => {
   }
 }
 
-const getVideogamesByName = async (queryName) => {
+const getVideogamesByName = (queryName) => {
   const URL = `${API.DOMAIN}/videogames?name=${queryName}`
 
-  await fetch(URL)
-    .then((response) => response.json())
-    .then((results) => {
-      console.info('Fetching GET Videogames by name')
-      console.log(results)
-    })
+  return function (dispatch) {
+    fetch(URL)
+      .then((response) => response.json())
+      .then((results) => {
+        console.info('Fetching GET Videogames by name')
+        dispatch({ type: GET_VIDEOGAMES_BY_NAME, payload: results.data })
+      })
+  }
 }
 
 export {
