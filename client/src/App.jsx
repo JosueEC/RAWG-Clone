@@ -13,6 +13,7 @@ import Backdrop from './components/Backdrop/Backdrop.jsx'
 //! pages imports
 import Landing from './pages/Landing/Landing.jsx'
 import Home from './pages/Home/Home.jsx'
+import Details from './pages/Details/Details.jsx'
 
 import './App.css'
 
@@ -39,7 +40,7 @@ function App () {
         />
         <Route
           path={ROUTER.DETAILS}
-          element={<h2>Details</h2>}
+          element={<Details />}
         />
         <Route
           path={ROUTER.FORM}
