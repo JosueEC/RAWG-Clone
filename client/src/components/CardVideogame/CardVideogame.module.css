@@ -6,6 +6,7 @@
   transition: 0.5s;
   animation: ease-in;
   background: var(--card);
+  border-radius: 1rem;
 }
 
 .card:hover {
@@ -17,6 +18,10 @@
   overflow: hidden;
   height: 180px;
   width: 100%;
+}
+
+.card .content {
+  padding-left: 1rem;
 }
 
 .card .content .title {
