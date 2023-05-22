@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getVideogames } from '../../redux/actions'
 
 import styles from './ContainerCardsVideogames.module.css'
+import SearchBar from '../SearchBar/SearchBar'
 import CardVideogame from '../CardVideogame/CardVideogame'
 
 export default function ContainerCardsDiet () {
@@ -16,6 +17,7 @@ export default function ContainerCardsDiet () {
 
   return (
     <section className={styles.videogames}>
+      <SearchBar />
       <div className={styles.content}>
         {
           videogames
