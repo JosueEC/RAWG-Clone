@@ -5,6 +5,7 @@ import styles from './FormNewVideogame.module.css'
 import imgFormKratos from './assets/logo-form.png'
 
 export default function FormRecipe () {
+  const [platforms, setPlatforms] = useState([])
   const [dataForm, setDataForm] = useState({
     name: '',
     slug: '',
@@ -26,9 +27,20 @@ export default function FormRecipe () {
 
     setDataForm({
       ...dataForm,
+      platforms,
       [key]: value
     })
     console.log(dataForm)
+  }
+
+  function handleCkeck (event) {
+    const { value, checked } = event.target
+
+    if (checked) {
+      setPlatforms((previousState) => [...previousState, value])
+    } else {
+      setPlatforms((previousState) => previousState.filter((platformID) => platformID !== value))
+    }
   }
 
   return (
@@ -59,49 +71,49 @@ export default function FormRecipe () {
           <h3>Platforms</h3>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='pc' value={4} />
+              <input type='checkbox' id='pc' value={4} onChange={handleCkeck} />
               <label htmlFor='pc' className={styles.labelCheck}>PC</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='playStation5' value={187} />
+              <input type='checkbox' id='playStation5' value={187} onChange={handleCkeck} />
               <label htmlFor='playStation5' className={styles.labelCheck}>Play Station 5</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='playStation4' value={18} />
+              <input type='checkbox' id='playStation4' value={18} onChange={handleCkeck} />
               <label htmlFor='playStation4' className={styles.labelCheck}>Play Station 4</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='xboxOne' value={1} />
+              <input type='checkbox' id='xboxOne' value={1} onChange={handleCkeck} />
               <label htmlFor='xboxOne' className={styles.labelCheck}>Xbox One</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='xboxSeriesSX' value={186} />
+              <input type='checkbox' id='xboxSeriesSX' value={186} onChange={handleCkeck} />
               <label htmlFor='xboxSeriesSX' className={styles.labelCheck}>Xbox Series S/X</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='nintendoSwitch' value={7} />
+              <input type='checkbox' id='nintendoSwitch' value={7} onChange={handleCkeck} />
               <label htmlFor='nintendoSwitch' className={styles.labelCheck}>Nintendo Switch</label>
             </div>
           </div>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='ios' value={3} />
+              <input type='checkbox' id='ios' value={3} onChange={handleCkeck} />
               <label htmlFor='ios' className={styles.labelCheck}>IOS</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='android' value={21} />
+              <input type='checkbox' id='android' value={21} onChange={handleCkeck} />
               <label htmlFor='android' className={styles.labelCheck}>Android</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='nintendo3DS' value={8} />
+              <input type='checkbox' id='nintendo3DS' value={8} onChange={handleCkeck} />
               <label htmlFor='nintendo3DS' className={styles.labelCheck}>Nintendo 3DS</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='psVita' value={19} />
+              <input type='checkbox' id='psVita' value={19} onChange={handleCkeck} />
               <label htmlFor='psVita' className={styles.labelCheck}>PS Vita</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='wiiU' value={10} />
+              <input type='checkbox' id='wiiU' value={10} onChange={handleCkeck} />
               <label htmlFor='wiiU' className={styles.labelCheck}>Wii U</label>
             </div>
           </div>
