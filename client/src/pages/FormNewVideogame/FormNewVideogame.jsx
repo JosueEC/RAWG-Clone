@@ -1,40 +1,109 @@
 /* eslint-disable no-undef */
 import { React, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { postVideogame } from '../../redux/actions'
 
 import styles from './FormNewVideogame.module.css'
 import imgFormKratos from './assets/logo-form.png'
 
+function validateDataForm (state, errorsState) {
+  const errors = { ...errorsState }
+
+  // const regexText = /[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$/
+  const regexURL = /^(https?:\/\/)/
+  const regexReleased = /^\d{4}-\d{2}-\d{2}$/
+
+  if (state.name === '') {
+    errors.name = '*'
+  } else if (state.name.length < 2 || state.name.length > 50) {
+    errors.name = 'The summary should be between 2 and 500 characters in length'
+  } else {
+    errors.name = ''
+  }
+
+  if (state.released === '') {
+    errors.released = '*'
+  } else if (!regexReleased.test(state.released)) {
+    errors.released = 'The date format should be YYYY-MM-DD'
+  } else {
+    errors.released = ''
+  }
+
+  if (state.background_image === '') {
+    errors.background_image = '*'
+  } else if (!regexURL.test(state.background_image)) {
+    errors.background_image = 'Enter a valid URL'
+  } else {
+    errors.background_image = ''
+  }
+
+  if (state.website === '') {
+    errors.website = ''
+  } else if (!regexURL.test(state.website)) {
+    errors.website = 'Enter a valid URL'
+  } else {
+    errors.website = ''
+  }
+
+  if (state.platforms.length === 0) {
+    errors.platforms = 'You should select at least one platform'
+  } else {
+    errors.platforms = ''
+  }
+
+  if (state.genres.length === 0) {
+    errors.genres = 'You should select at least one genre'
+  } else {
+    errors.genres = ''
+  }
+
+  if (state.description_raw === '') {
+    errors.description_raw = '*'
+  } else if (state.description_raw.length < 10 || state.description_raw.length > 500) {
+    errors.description_raw = 'The summary should be between 10 and 500 characters in length'
+  } else {
+    errors.description_raw = ''
+  }
+
+  return errors
+}
+
 export default function FormRecipe () {
+  const dispatch = useDispatch()
   const [platforms, setPlatforms] = useState([])
   const [genres, setGenres] = useState([])
   const [tags, setTags] = useState([])
   const [dataForm, setDataForm] = useState({
     name: '',
-    slug: '',
     released: '',
     background_image: '',
     website: '',
-    rating: 0,
-    rating_top: 0,
-    movies_count: 0,
-    ratings_count: 0,
     platforms: [],
     genres: [],
     tags: [],
     description_raw: ''
   })
+  const [dataFormErrors, setDataFormErrors] = useState({
+    name: '',
+    released: '',
+    background_image: '',
+    website: '',
+    platforms: [],
+    genres: [],
+    description_raw: ''
+  })
 
   function handleChange (event) {
-    const { key, value } = event.target
+    const { name, value } = event.target
 
     setDataForm({
       ...dataForm,
       platforms,
       genres,
       tags,
-      [key]: value
+      [name]: value
     })
-    console.log(dataForm)
+    setDataFormErrors(validateDataForm({ ...dataForm, [name]: value }, dataFormErrors))
   }
 
   function handleCheckPlatform (event) {
@@ -71,30 +140,81 @@ export default function FormRecipe () {
     }
   }
 
+  function handleSubmit (event) {
+    event.preventDefault()
+
+    if (dataFormErrors.name !== '' ||
+    dataFormErrors.released !== '' ||
+    dataFormErrors.background_image !== '' ||
+    dataFormErrors.website !== '' ||
+    dataFormErrors.platforms !== '' ||
+    dataFormErrors.genres !== '' ||
+    dataFormErrors.description_raw !== '') {
+      alert('There are incorrect fields')
+    } else {
+      dispatch(postVideogame(dataForm))
+      setDataForm({
+        name: '',
+        released: '',
+        background_image: '',
+        website: '',
+        platforms: [],
+        genres: [],
+        tags: [],
+        description_raw: ''
+      })
+    }
+  }
+
   return (
     <section className={styles.formRecipe}>
       <div className={styles.image}>
         <img src={imgFormKratos} alt='Kratos' />
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1 className={styles.heading}>New Videogame</h1>
         <div className={styles.inputcaja}>
-          <input type='text' name='name' id='name' onChange={handleCheckPlatform} required />
+          <input type='text' name='name' id='name' onChange={handleChange} required />
           <label htmlFor='name'>Name Videogame</label>
         </div>
+        {
+          (dataFormErrors.name)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.name}</label>)
+            : (<></>)
+        }
         <div className={styles.inputcaja}>
-          <input type='text' name='background_image' id='background_image' onChange={handleCheckPlatform} required />
+          <input type='text' name='background_image' id='background_image' onChange={handleChange} required />
           <label htmlFor='background_image'>Image</label>
         </div>
+        {
+          (dataFormErrors.background_image)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.background_image}</label>)
+            : (<></>)
+        }
         <div className={styles.inputcaja}>
-          <input type='text' name='website' id='website' onChange={handleCheckPlatform} required />
+          <input type='text' name='website' id='website' onChange={handleChange} required />
           <label htmlFor='website'>Website</label>
         </div>
+        {
+          (dataFormErrors.website)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.website}</label>)
+            : (<></>)
+        }
         <div className={styles.inputcaja}>
-          <input type='text' name='released' id='released' onChange={handleCheckPlatform} required />
+          <input type='text' name='released' id='released' onChange={handleChange} required />
           <label htmlFor='released'>Released</label>
         </div>
-
+        {
+          (dataFormErrors.released)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.released}</label>)
+            : (<></>)
+        }
+        <br />
+        {
+          (dataFormErrors.platforms)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.platforms}</label>)
+            : (<></>)
+        }
         <div className={styles.containerCheckbox}>
           <h3>Platforms</h3>
           <div className={styles.containerColumn}>
@@ -147,6 +267,11 @@ export default function FormRecipe () {
           </div>
         </div>
 
+        {
+          (dataFormErrors.genres)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.genres}</label>)
+            : (<></>)
+        }
         <div className={styles.containerCheckbox}>
           <h3>Genres</h3>
           <div className={styles.containerColumn}>
@@ -230,9 +355,14 @@ export default function FormRecipe () {
         </div>
 
         <div className={styles.inputcaja}>
-          <textarea required name='about' id='about' cols={30} rows={10} onChange={handleChange} />
-          <label htmlFor='about'>About the Game</label>
+          <textarea required name='description_raw' id='description_raw' cols={30} rows={10} onChange={handleChange} />
+          <label htmlFor='description_raw'>About the Game</label>
         </div>
+        {
+          (dataFormErrors.description_raw)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.description_raw}</label>)
+            : (<></>)
+        }
 
         <button type='submit' className={styles.btn}>Create Videogame</button>
       </form>

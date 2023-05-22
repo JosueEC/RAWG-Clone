@@ -19,19 +19,7 @@
 
 .formRecipe .image {
   flex: 1 1 40rem;
-  animation: fadeInLeft 1s ease 0s 1 normal forwards;
-}
-
-@keyframes fadeInLeft {
-	0% {
-		opacity: 0;
-		transform: translateX(-250px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
 .formRecipe .image img {
@@ -47,18 +35,16 @@
   border-radius: .5rem;
   background: white;
   cursor: pointer;
-  animation: fadeInRight 1s ease 0s 1 normal forwards;
+  animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
-@keyframes fadeInRight {
+@keyframes fadeIn {
 	0% {
 		opacity: 0;
-		transform: translateX(250px);
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateX(0);
 	}
 }
 
@@ -118,7 +104,7 @@
   margin-top: 1rem;
   padding: .8rem 3rem;
   border-radius: 5rem;
-  background: var(--degradado);
+  background: var(--card);
   font-size: 1.2rem;
   color: white;
   cursor: pointer;

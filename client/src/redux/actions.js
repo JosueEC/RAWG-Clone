@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 import { API } from '../../consts'
 
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES'
 export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_GAME'
+export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 
 const getVideogames = () => {
   const URL = `${API.DOMAIN}/videogames`
@@ -29,7 +31,50 @@ const getVideogamesByName = (queryName) => {
   }
 }
 
+const postVideogame = (dataVideogame) => {
+  const URL = `${API.DOMAIN}/videogames`
+
+  const formatVideogame = {
+    name: dataVideogame.name,
+    slug: dataVideogame.name.toLowerCase().replace(/\s/g, ''),
+    released: dataVideogame.released,
+    background_image: dataVideogame.background_image,
+    website: dataVideogame.website || '',
+    rating: 0,
+    rating_top: 0,
+    movies_count: 0,
+    ratings_count: 0,
+    platforms: dataVideogame.platforms,
+    genres: dataVideogame.genres,
+    tags: dataVideogame.tags,
+    description_raw: dataVideogame.description_raw
+  }
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formatVideogame)
+  }
+
+  return function (dispatch) {
+    fetch(URL, options)
+      .then((response) => response.json())
+      .then((results) => {
+        console.info('Fetching-POST-videogame')
+        if (results.status === 'CREATED') {
+          console.info('Game created')
+          alert('Successsfully created video game')
+        } else {
+          console.log(results)
+        }
+      })
+  }
+}
+
 export {
   getVideogames,
-  getVideogamesByName
+  getVideogamesByName,
+  postVideogame
 }
