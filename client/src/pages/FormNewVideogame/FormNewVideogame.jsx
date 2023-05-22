@@ -7,6 +7,7 @@ import imgFormKratos from './assets/logo-form.png'
 export default function FormRecipe () {
   const [platforms, setPlatforms] = useState([])
   const [genres, setGenres] = useState([])
+  const [tags, setTags] = useState([])
   const [dataForm, setDataForm] = useState({
     name: '',
     slug: '',
@@ -29,9 +30,11 @@ export default function FormRecipe () {
     setDataForm({
       ...dataForm,
       platforms,
+      genres,
+      tags,
       [key]: value
     })
-    // console.log(dataForm)
+    console.log(dataForm)
   }
 
   function handleCheckPlatform (event) {
@@ -42,7 +45,6 @@ export default function FormRecipe () {
     } else {
       setPlatforms((previousState) => previousState.filter((platformID) => platformID !== value))
     }
-    console.log(platforms)
   }
 
   function handleCheckGenre (event) {
@@ -55,7 +57,18 @@ export default function FormRecipe () {
         return previousState.filter((genreID) => genreID !== value)
       })
     }
-    console.log(genres)
+  }
+
+  function handleCheckTag (event) {
+    const { value, checked } = event.target
+
+    if (checked) {
+      setTags((previousState) => [...previousState, value])
+    } else {
+      setTags((previousState) => {
+        return previousState.filter((tagID) => tagID !== value)
+      })
+    }
   }
 
   return (
@@ -190,27 +203,27 @@ export default function FormRecipe () {
           <h3>Tags</h3>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='singlePlayer' value={31} />
+              <input type='checkbox' id='singlePlayer' value={31} onChange={handleCheckTag} />
               <label htmlFor='singlePlayer' className={styles.labelCheck}>Single Player</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='steamAchievements' value={40847} />
+              <input type='checkbox' id='steamAchievements' value={40847} onChange={handleCheckTag} />
               <label htmlFor='steamAchievements' className={styles.labelCheck}>Steam Achievements</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='multiplayer' value={7} />
+              <input type='checkbox' id='multiplayer' value={7} onChange={handleCheckTag} />
               <label htmlFor='multiplayer' className={styles.labelCheck}>Multiplayer</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='fullControllerSupport' value={4836} />
+              <input type='checkbox' id='fullControllerSupport' value={40836} onChange={handleCheckTag} />
               <label htmlFor='fullControllerSupport' className={styles.labelCheck}>Full Controller Support</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='atmospheric' value={13} />
+              <input type='checkbox' id='atmospheric' value={13} onChange={handleCheckTag} />
               <label htmlFor='atmospheric' className={styles.labelCheck}>Atmospheric</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='steamCloud' value={4849} />
+              <input type='checkbox' id='steamCloud' value={40849} onChange={handleCheckTag} />
               <label htmlFor='steamCloud' className={styles.labelCheck}>Steam Cloud</label>
             </div>
           </div>
