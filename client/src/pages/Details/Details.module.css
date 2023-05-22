@@ -1,31 +1,23 @@
-/* :root {
-  --primary-color: #90e0ef;
-  --secondary-color: #00b4d5;
-  --tertiary-color: #0077b6;
-  --yellow-color: #ffb900;
-  --gray-color: #808080;
-} */
-
-.container {
-  background-color: white;
+.containerDetails {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 7rem;
 }
 
-.containerSummary {
-  background: white;
+.about {
+  background: var(--card);
   padding: 2rem 1rem;
   margin-top: 4rem;
   font-size: 2rem;
 }
 
-.containerSummary span {
+.about span {
   font-size: 3rem;
 }
 
-.containerSummary p {
+.about p {
   font-size: 1.6rem;
   color: #666;
 
@@ -42,11 +34,11 @@
   padding: 1rem;
 }
 
-.box {
+.content {
   border: .1rem solid rgba(0,0,0,.2);
   border-radius: .5rem;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-  background: white;
+  background: var(--card);
   padding: 45px;
   margin: 15px 0;
   width: 100%;
@@ -57,10 +49,9 @@
   "images info"
   "images description";
   grid-gap: 35px;
-
 }
 
-.box .images {
+.content .images {
   grid-area: images;
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -71,42 +62,42 @@
   grid-gap: 5px;
 }
 
-.box .images .imgHolder img {
+.content .images .imgHolder img {
   width: 100%;
   display: block;
   border-radius: .5rem;
 }
 
-.box .images .imgHolder {
+.content .images .imgHolder {
   grid-area: active;
 }
 
-.box .basicInfo {
+.content .basicInfo {
   grid-area: info;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.box .basicInfo span {
+.content .basicInfo span {
   font-weight: 800;
   font-size: 25px;
 }
 
-.box .description {
+.content .description {
   grid-area: description;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.box .description p {
+.content .description p {
   color: #666;
   font-size: 1.6rem;
   line-height: 1.5;
 }
 
-.box .description .features {
+.content .description .features {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -115,21 +106,21 @@
   font-size: 1.6rem;
 }
 
-.box .description .features i {
+.content .description .features i {
   margin-right: 5px;
   color: var(--limon);
 }
 
-.box .description span {
+.content .description span {
   font-size: 2.5rem;
   text-align: left;
 }
 
-.box .description .features .fa-circle-check {
+.content .description .features .fa-circle-check {
   color: var(--tertiary-color);
 }
 
-.box .description .features .fa-circle-xmark {
+.content .description .features .fa-circle-xmark {
   color: var(--yellow-color);
 }
 
@@ -143,7 +134,7 @@
 }
 
 @media screen and (max-width: 991px) and (min-width: 769px) {
-  .box .basic-info span {
+  .content .basic-info span {
     position: absolute;
     align-self: flex-end;
   }

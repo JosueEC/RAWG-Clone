@@ -19,16 +19,16 @@ export default function Details () {
   }, [])
 
   return (
-    <section className={styles.container}>
+    <section className={styles.containerDetails}>
       {
         videogame
           ? (
-            <div className={styles.box}>
+            <div className={styles.content}>
               <div className={styles.images}>
                 <div className={styles.imgHolder}>
                   <img src={videogame.background_image} alt='recipe' />
                 </div>
-                <div className={styles.containerSummary}>
+                <div className={styles.about}>
                   <span className={styles.heading}>About</span>
                   <p>{videogame.description_raw}</p>
                 </div>
