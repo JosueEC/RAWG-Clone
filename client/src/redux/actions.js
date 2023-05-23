@@ -6,6 +6,8 @@ export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_GAME'
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 export const FILTER_VIDEOGAMES_ORDER = 'FILTER_VIDEOGAMES_ORDER'
 export const FILTER_GAMES_PLATFORM = 'FILTER_GAMES_PLATFORM'
+export const FILTER_GAMES_GENRE = 'FILTER_GAMES_GENRE'
+export const FILTER_GAMES_ORIGIN = 'FILTER_GAMES_ORIGIN'
 
 const getVideogames = () => {
   const URL = `${API.DOMAIN}/videogames`
@@ -88,10 +90,24 @@ const filterGamesByPlatform = (query) => {
   }
 }
 
+const filterGamesByGenre = (genre) => {
+  return function (dispatch) {
+    dispatch({ type: FILTER_GAMES_GENRE, payload: genre })
+  }
+}
+
+const filterGamesByOrigin = (origin) => {
+  return function (dispatch) {
+    dispatch({ type: FILTER_GAMES_ORIGIN, payload: origin })
+  }
+}
+
 export {
   getVideogames,
   getVideogamesByName,
   postVideogame,
   filterVideogamesOrder,
-  filterGamesByPlatform
+  filterGamesByPlatform,
+  filterGamesByGenre,
+  filterGamesByOrigin
 }

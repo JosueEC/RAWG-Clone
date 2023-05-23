@@ -1,4 +1,4 @@
-import { FILTER_VIDEOGAMES_ORDER, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME, FILTER_GAMES_PLATFORM } from './actions'
+import { FILTER_VIDEOGAMES_ORDER, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME, FILTER_GAMES_PLATFORM, FILTER_GAMES_GENRE, FILTER_GAMES_ORIGIN } from './actions'
 // import { FILTER } from '../../consts'
 
 const initialState = {
@@ -30,6 +30,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         videogames: [...state.auxVideogames].filter((game) => game.platforms.includes(action.payload))
+      }
+    case FILTER_GAMES_GENRE:
+      return {
+        ...state,
+        videogames: [...state.auxVideogames].filter((game) => game.genres.includes(action.payload))
+      }
+    case FILTER_GAMES_ORIGIN:
+      return {
+        ...state,
+        videogames: [...state.auxVideogames].filter((game) => game.origin === action.payload)
       }
     default:
       return {
