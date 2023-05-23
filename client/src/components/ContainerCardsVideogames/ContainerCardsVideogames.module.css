@@ -1,15 +1,11 @@
-.videogames {
-  padding-left: 0;
-  border: var(--debug);
-}
-
 .videogames .content {
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100vw;
   gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 .videogames .labelResults {

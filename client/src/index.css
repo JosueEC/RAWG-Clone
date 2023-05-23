@@ -3,6 +3,7 @@
 :root {
   --negro: #151515;
   --card: #202020;
+  --texto: #666;
   --gris: #3A4F50;
   --principal: #0080bf;
   --blanco: #fff;
@@ -25,11 +26,6 @@
   border: none;
 }
 
-/* *::selection {
-  background: var(--limon);
-  color: white;
-} */
-
 html {
   font-size: 90%;
   overflow-x: hidden;
@@ -40,15 +36,15 @@ body {
 }
 
 section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  padding: 0 9%;
+  /* padding: 0 9%; */
   padding-top: 2rem;
+  border: var(--debug);
 }
-
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 @media(max-width: 1200px) {
   html {

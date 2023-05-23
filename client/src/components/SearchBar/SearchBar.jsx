@@ -31,7 +31,7 @@ export default function SearchBar () {
         <button name='btnSearch' className={styles.button} onClick={handleClick}>Search</button>
         <button name='btnAllVideogames' className={styles.button} onClick={handleClick}>All Videogames</button>
       </div>
-      <div className={styles.filterLists}>
+      <div className={styles.containerLists}>
         <ListRatingOrder />
       </div>
     </div>

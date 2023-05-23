@@ -23,13 +23,10 @@ export default function ListRatingOrder () {
   }
 
   return (
-    <div className={styles.listAlphabetical}>
-      <select name='selectAlphabeth' onChange={handleChange} className={styles.selectAlphabetical} defaultValue='random'>
-        <option value='random'>Random</option>
-        <option value='rating+'>Rating +</option>
-        <option value='rating-'>Rating -</option>
-      </select>
-      <button>State Games</button>
-    </div>
+    <select name='selectAlphabeth' onChange={handleChange} className={styles.selectAlphabetical} defaultValue='random'>
+      <option value='random'>Random</option>
+      <option value='rating+'>Rating +</option>
+      <option value='rating-'>Rating -</option>
+    </select>
   )
 }

@@ -1,23 +1,29 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 95%;
-  margin: 0 auto;
   text-align: center;
-  animation: fadeInBottom 1s ease 0s 1 normal forwards;
+  animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
 .searchContainer {
-  margin: 0.5em 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .searchContainer input {
   background-color: var(--card);
-  width: 60%;
-  border-bottom: 2px solid var(--limon);
-  padding: 1em 0.3em;
-  color: #666;
+  width: 62%;
+  padding: 1rem 1.5rem;
+  color: var(--texto);
   transition: 0.4s;
   border-radius: 1rem;
-  border: var(--)
+  font-size: 1.1rem;
+  font-family: var(--fontParrafo);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 }
 
 .searchContainer input:hover {
@@ -25,7 +31,7 @@
 }
 
 .searchContainer input:focus {
-  border-bottom-color: var(--verde);
+  border: solid 2px var(--gris);
 }
 
 .wrapper .searchContainer .button {
@@ -35,16 +41,23 @@
   border-radius: 1rem;
   background: var(--card);
   font-family: var(--fontBoton);
-  font-size: 1.2rem;
-  color: white;
+  font-size: 1.4rem;
+  color: var(--texto);
   cursor: pointer;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-  transition: all .3s linear;
+  transition: .4s;
 }
 
 .wrapper .searchContainer .button:hover {
   transform: scale(1.01);
   background: var(--gris);
+  color: var(--blanco);
+}
+
+.wrapper .containerLists {
+  display: flex;
+  align-items: center;
+  padding: 0 8.7rem;
 }
 
 @media (max-width: 450px) {
@@ -56,7 +69,7 @@
   }
 }
 
-@keyframes fadeInBottom {
+@keyframes fadeIn {
   0% {
     opacity: 0;
     transform: translateY(10px);
