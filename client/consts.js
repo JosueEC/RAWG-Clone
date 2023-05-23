@@ -9,7 +9,12 @@ const API = Object.freeze({
   DOMAIN: 'http://localhost:3001'
 })
 
+const FILTER = Object.freeze({
+  PC: 'PC'
+})
+
 export {
   ROUTER,
-  API
+  API,
+  FILTER
 }

@@ -1,4 +1,5 @@
-import { FILTER_VIDEOGAMES_ORDER, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME } from './actions'
+import { FILTER_VIDEOGAMES_ORDER, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME, FILTER_GAMES_PLATFORM } from './actions'
+// import { FILTER } from '../../consts'
 
 const initialState = {
   videogames: [],
@@ -25,12 +26,24 @@ const rootReducer = (state = initialState, action) => {
         auxVideogames: state.videogames,
         videogames: state.videogames.sort()
       }
+    case FILTER_GAMES_PLATFORM:
+      return {
+        ...state,
+        videogames: [...state.auxVideogames].filter((game) => game.platforms.includes(action.payload))
+      }
     default:
       return {
         ...state
       }
   }
 }
+
+// function filterBy (state, payload) {
+//   switch (payload) {
+//     case FILTER.PC:
+//       return state.videogames.filter((game) => game.platforms.includes('pc'))
+//   }
+// }
 
 // function selectOrder (state, order) {
 //   if (order === 'a-z') {

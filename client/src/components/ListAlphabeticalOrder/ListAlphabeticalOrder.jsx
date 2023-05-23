@@ -1,11 +1,10 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { filterVideogamesOrder } from '../../redux/actions'
 
 import styles from './ListAlphabeticalOrder.module.css'
 
 export default function ListAlphabeticalOrder () {
-  const games = useSelector((state) => state.videogames)
   const dispatch = useDispatch()
 
   function handleChange (event) {
@@ -20,7 +19,7 @@ export default function ListAlphabeticalOrder () {
         <option value='a-z'>A - Z</option>
         <option value='z-a'>Z - A</option>
       </select>
-      <button onClick={console.log(games)}>State Games</button>
+      <button>State Games</button>
     </div>
   )
 }
