@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 import styles from './CardVideogame.module.css'
 
-export default function CardVideogame ({ id, name, released, background_image, platforms, genres }) {
+export default function CardVideogame ({ id, name, released, background_image, rating_top, platforms, genres }) {
   return (
-    <Link to={`/details/${id}`}>
+    <Link to={`/details/${id}`} className={styles.linkCard}>
       <div className={styles.card}>
         <div className={styles.image}>
           <img src={background_image} alt='game' />
@@ -16,15 +16,10 @@ export default function CardVideogame ({ id, name, released, background_image, p
             <h3>{name}</h3>
           </div>
           <div className={styles.body}>
-            <p>{released}</p><br />
-            <p>{platforms.join(', ')}</p><br />
-            <p>{genres.join(', ')}</p>
+            <p><span>Released Date:</span> {released}</p><br />
+            <p><span>Rating Top:</span>{rating_top}</p><br />
+            <p><span>Genres:</span>{`${genres[0]}, ${genres[1] || '...'}, ${genres[2] || '...'}`}</p>
           </div>
-        </div>
-        <div className={styles.button}>
-          <button>
-            <label>See Details</label>
-          </button>
         </div>
       </div>
     </Link>

@@ -6,6 +6,7 @@
   --gris: #3A4F50;
   --principal: #0080bf;
   --blanco: #fff;
+  --gris-bajo: #4f6b6d;
   --degradadoLineal: linear-gradient(90deg, var(--morado), var(--gris));
 
   --fontTitulo: 'Khand', sans-serif;

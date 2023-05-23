@@ -1,43 +1,59 @@
-.card {
-  width: 290px;
-  height: 420px;
-  overflow: hidden;
-  transition: 0.5s;
-  animation: ease-in;
-  background: var(--card);
-  border-radius: 1rem;
-  animation: fadeIn 1s ease 0s 1 normal forwards;
+.linkCard {
+  transition: all 0.3s linear;
+  margin: 1rem;
 }
 
-.card:hover {
+.linkCard:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 15px 0px;
+}
+
+.card {
+  width: 400px;
+  height: 560px;
+  overflow: hidden;
+  background: var(--card);
+  border-radius: 0.7rem;
+  animation: fadeIn 1s ease 0s 1 normal forwards;
+  transition: all 0.5s linear;
 }
 
 .image img {
   overflow: hidden;
-  height: 180px;
+  height: 235px;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .card .content {
-  padding-left: 1rem;
+  height: 100%;
+  padding: 0 0.6rem;
+  /* border: var(--debug); */
 }
 
 .card .content .title {
+  margin: 0 1rem;
   color: var(--blanco);
-  margin-bottom: 0.7rem;
   font-family: var(--fontParrafo);
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  transition: all 0.2s linear;
+}
+
+.card .content .title:hover {
+  color: var(--gris-bajo);
 }
 
 .card .body {
-  margin-top: 1.7rem;
+  margin: 1.7rem 1rem;
 }
 
 .card .body p {
-  color: var(--gris);
+  display: flex;
+  justify-content: space-between;
+  color: var(--gris-bajo);
   font-family: var(--fontParrafo);
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--gris-bajo);
+  padding-bottom: 0.4rem;
 }
 
 .card .button {

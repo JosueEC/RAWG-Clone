@@ -28,26 +28,6 @@
   border-bottom-color: var(--verde);
 }
 
-.buttonValue {
-  border: 2px solid var(--verde);
-  padding: .8rem 3rem;
-  border-radius: 3em;
-  font-size: 1.2rem;
-  background-color: transparent;
-  color: #666;
-  cursor: pointer;
-}
-
-.buttonValue:hover {
-  background-color: var(--limon);
-  color: white;
-}
-
-.active {
-  background-color: var(--limon);
-  color: #fff;
-}
-
 .wrapper .searchContainer .button {
   display: inline-block;
   margin: 0 0.5rem;
@@ -63,7 +43,7 @@
 }
 
 .wrapper .searchContainer .button:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   background: var(--gris);
 }
 
