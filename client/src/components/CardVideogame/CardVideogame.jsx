@@ -23,7 +23,7 @@ export default function CardVideogame ({ id, name, released, background_image, p
         </div>
         <div className={styles.button}>
           <button>
-            <a>See Details</a>
+            <label>See Details</label>
           </button>
         </div>
       </div>

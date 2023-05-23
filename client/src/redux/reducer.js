@@ -22,8 +22,8 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_VIDEOGAMES_ORDER:
       return {
         ...state,
-        videogames: [...state.videogames].sort((a, b) => a.name - b.name),
-        auxVideogames: state.videogames
+        auxVideogames: state.videogames,
+        videogames: state.videogames.sort()
       }
     default:
       return {
@@ -31,5 +31,18 @@ const rootReducer = (state = initialState, action) => {
       }
   }
 }
+
+// function selectOrder (state, order) {
+//   if (order === 'a-z') {
+//     console.info('a-z')
+//     return [...state.videogames].sort((a, b) => a.name - b.name)
+//   } else if (order === 'z-a') {
+//     console.info('z-a')
+//     return [...state.videogames].sort((a, b) => b.name - a.name)
+//   } else {
+//     console.info('random')
+//     return state.auxVideogames
+//   }
+// }
 
 export default rootReducer
