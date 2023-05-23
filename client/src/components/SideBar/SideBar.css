@@ -22,6 +22,7 @@
   align-items: center;
   gap: 1rem;
   font-weight: 300;
+  background-color: var(--negro);
   transition: 0.5s;
 }
 
