@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME } from './actions'
+import { FILTER_VIDEOGAMES_ORDER, GET_VIDEOGAMES, GET_VIDEOGAMES_BY_NAME } from './actions'
 
 const initialState = {
   videogames: [],
@@ -16,7 +16,14 @@ const rootReducer = (state = initialState, action) => {
     case GET_VIDEOGAMES_BY_NAME:
       return {
         ...state,
+        auxVideogames: state.videogames,
         videogames: action.payload
+      }
+    case FILTER_VIDEOGAMES_ORDER:
+      return {
+        ...state,
+        videogames: [...state.videogames].sort((a, b) => a.name - b.name),
+        auxVideogames: state.videogames
       }
     default:
       return {

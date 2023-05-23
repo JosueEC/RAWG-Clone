@@ -2,6 +2,8 @@ import { React, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getVideogamesByName, getVideogames } from '../../redux/actions'
 
+import ListAlphabeticalOrder from '../ListAlphabeticalOrder/ListAlphabeticalOrder'
+
 import styles from './SearchBar.module.css'
 
 export default function SearchBar () {
@@ -28,6 +30,9 @@ export default function SearchBar () {
         <input type='search' className={styles.searchInput} placeholder='Search 849,600 games' onChange={handleChange} />
         <button name='btnSearch' className={styles.button} onClick={handleClick}>Search</button>
         <button name='btnAllVideogames' className={styles.button} onClick={handleClick}>All Videogames</button>
+      </div>
+      <div className={styles.filterLists}>
+        <ListAlphabeticalOrder />
       </div>
     </div>
   )

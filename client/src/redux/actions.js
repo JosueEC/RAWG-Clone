@@ -4,6 +4,7 @@ import { API } from '../../consts'
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES'
 export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_GAME'
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'
+export const FILTER_VIDEOGAMES_ORDER = 'FILTER_VIDEOGAMES_ORDER'
 
 const getVideogames = () => {
   const URL = `${API.DOMAIN}/videogames`
@@ -73,8 +74,15 @@ const postVideogame = (dataVideogame) => {
   }
 }
 
+const filterVideogamesOrder = (order) => {
+  return function (dispatch) {
+    dispatch({ type: FILTER_VIDEOGAMES_ORDER, payload: order })
+  }
+}
+
 export {
   getVideogames,
   getVideogamesByName,
-  postVideogame
+  postVideogame,
+  filterVideogamesOrder
 }
