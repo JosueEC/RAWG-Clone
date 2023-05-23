@@ -13,7 +13,6 @@ export default function ContainerCardsDiet () {
 
   useEffect(() => {
     dispatch(getVideogames())
-    console.info(videogames)
   }, [])
 
   return (

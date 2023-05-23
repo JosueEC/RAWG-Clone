@@ -24,8 +24,8 @@ export default function ListRatingOrder () {
 
   return (
     <div className={styles.listAlphabetical}>
-      <select name='selectAlphabeth' onChange={handleChange} className={styles.selectAlphabetical}>
-        <option value='random' selected>Random</option>
+      <select name='selectAlphabeth' onChange={handleChange} className={styles.selectAlphabetical} defaultValue='random'>
+        <option value='random'>Random</option>
         <option value='rating+'>Rating +</option>
         <option value='rating-'>Rating -</option>
       </select>

@@ -79,7 +79,7 @@
 @keyframes fadeInBottom {
   0% {
     opacity: 0;
-    transform: translateY(250px);
+    transform: translateY(10px);
   }
 
   100% {

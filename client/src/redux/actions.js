@@ -81,7 +81,6 @@ const postVideogame = (dataVideogame) => {
 
 const orderGamesByRatingAsc = () => {
   return function (dispatch) {
-    console.info('rating +')
     dispatch({ type: ORDER_GAMES_RATING_ASC })
   }
 }
@@ -100,7 +99,6 @@ const orderGamesRandom = () => {
 
 const filterGamesByPlatform = (query) => {
   return function (dispatch) {
-    console.info(query)
     dispatch({ type: FILTER_GAMES_PLATFORM, payload: query })
   }
 }
