@@ -28,7 +28,7 @@ function App () {
     <>
       <ToolBar openSidebar={toggleSidebar} />
       <Backdrop sidebar={sidebar} closeSidebar={toggleSidebar} />
-      <SideBar sidebar={sidebar} />
+      <SideBar sidebar={sidebar} closeSidebar={toggleSidebar} />
 
       <Routes>
         <Route

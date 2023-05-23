@@ -8,29 +8,27 @@ import { ROUTER } from '../../../consts'
 
 import './SideBar.css'
 
-export default function SideBar ({ sidebar }) {
+export default function SideBar ({ sidebar, closeSidebar }) {
   const dispatch = useDispatch()
 
   function handleClickPlatform (event) {
-    console.info(event.target.id)
     dispatch(filterGamesByPlatform(event.target.id))
   }
 
   function handleClickGenre (event) {
-    console.info(event.target.id)
     dispatch(filterGamesByGenre(event.target.id))
   }
 
   function handleClickOrigin (event) {
-    console.info(event.target.id)
     dispatch(filterGamesByOrigin(event.target.id))
   }
 
   return (
     <div className={sidebar ? 'sidebar sidebar--open' : 'sidebar'}>
-      <Link to={ROUTER.LANDING}><li><i className='fa-solid fa-house-user' />Landing</li></Link>
-      <Link to={ROUTER.HOME}><li>Home</li></Link>
-      <Link to={ROUTER.FORM}><li>New Videogame</li></Link>
+      <li onClick={closeSidebar} className='toolBars'><i className='fas fa-bars' /></li>
+      <Link to={ROUTER.LANDING} className='link'><li>Landing</li></Link>
+      <Link to={ROUTER.HOME} className='link'><li>Home</li></Link>
+      <Link to={ROUTER.FORM} className='link'><li>New Videogame</li></Link>
       <br />
       <label>Platforms</label>
       <li id='pc' onClick={handleClickPlatform}>PC</li>
