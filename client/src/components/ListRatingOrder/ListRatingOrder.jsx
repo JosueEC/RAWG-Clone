@@ -1,0 +1,35 @@
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { orderGamesByRatingAsc, orderGamesByRatingDesc, orderGamesRandom } from '../../redux/actions'
+
+import styles from './ListRatingOrder.module.css'
+
+export default function ListRatingOrder () {
+  const dispatch = useDispatch()
+
+  function handleChange (event) {
+    const orderSelected = event.target.value
+    switch (orderSelected) {
+      case 'rating+':
+        dispatch(orderGamesByRatingAsc())
+        break
+      case 'rating-':
+        dispatch(orderGamesByRatingDesc())
+        break
+      default:
+        dispatch(orderGamesRandom())
+        break
+    }
+  }
+
+  return (
+    <div className={styles.listAlphabetical}>
+      <select name='selectAlphabeth' onChange={handleChange} className={styles.selectAlphabetical}>
+        <option value='random' selected>Random</option>
+        <option value='rating+'>Rating +</option>
+        <option value='rating-'>Rating -</option>
+      </select>
+      <button>State Games</button>
+    </div>
+  )
+}

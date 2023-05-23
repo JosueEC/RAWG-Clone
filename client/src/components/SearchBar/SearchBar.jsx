@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getVideogamesByName, getVideogames } from '../../redux/actions'
 
-import ListAlphabeticalOrder from '../ListAlphabeticalOrder/ListAlphabeticalOrder'
+import ListRatingOrder from '../ListRatingOrder/ListRatingOrder'
 
 import styles from './SearchBar.module.css'
 
@@ -32,7 +32,7 @@ export default function SearchBar () {
         <button name='btnAllVideogames' className={styles.button} onClick={handleClick}>All Videogames</button>
       </div>
       <div className={styles.filterLists}>
-        <ListAlphabeticalOrder />
+        <ListRatingOrder />
       </div>
     </div>
   )

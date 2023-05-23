@@ -4,7 +4,9 @@ import { API } from '../../consts'
 export const GET_VIDEOGAMES = 'GET_VIDEOGAMES'
 export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_GAME'
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'
-export const FILTER_VIDEOGAMES_ORDER = 'FILTER_VIDEOGAMES_ORDER'
+export const ORDER_GAMES_RATING_ASC = 'ORDER_GAMES_RATING_ASC'
+export const ORDER_GAMES_RATING_DESC = 'ORDER_GAMES_RATING_DESC'
+export const ORDER_GAMES_RANDOM = 'ORDER_GAMES_RANDOM'
 export const FILTER_GAMES_PLATFORM = 'FILTER_GAMES_PLATFORM'
 export const FILTER_GAMES_GENRE = 'FILTER_GAMES_GENRE'
 export const FILTER_GAMES_ORIGIN = 'FILTER_GAMES_ORIGIN'
@@ -77,9 +79,22 @@ const postVideogame = (dataVideogame) => {
   }
 }
 
-const filterVideogamesOrder = (order) => {
+const orderGamesByRatingAsc = () => {
   return function (dispatch) {
-    dispatch({ type: FILTER_VIDEOGAMES_ORDER, payload: order })
+    console.info('rating +')
+    dispatch({ type: ORDER_GAMES_RATING_ASC })
+  }
+}
+
+const orderGamesByRatingDesc = () => {
+  return function (dispatch) {
+    dispatch({ type: ORDER_GAMES_RATING_DESC })
+  }
+}
+
+const orderGamesRandom = () => {
+  return function (dispatch) {
+    dispatch({ type: ORDER_GAMES_RANDOM })
   }
 }
 
@@ -106,7 +121,9 @@ export {
   getVideogames,
   getVideogamesByName,
   postVideogame,
-  filterVideogamesOrder,
+  orderGamesByRatingAsc,
+  orderGamesByRatingDesc,
+  orderGamesRandom,
   filterGamesByPlatform,
   filterGamesByGenre,
   filterGamesByOrigin
