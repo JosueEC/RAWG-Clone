@@ -30,6 +30,7 @@ export default function SideBar ({ sidebar }) {
     <div className={sidebar ? 'sidebar sidebar--open' : 'sidebar'}>
       <Link to={ROUTER.LANDING}><li><i className='fa-solid fa-house-user' />Landing</li></Link>
       <Link to={ROUTER.HOME}><li>Home</li></Link>
+      <Link to={ROUTER.FORM}><li>New Videogame</li></Link>
       <br />
       <label>Platforms</label>
       <li id='pc' onClick={handleClickPlatform}>PC</li>
