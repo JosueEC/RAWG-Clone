@@ -1,41 +1,22 @@
-.heading {
-  text-align: center;
-  background: var(--verde);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-size: 3.5rem;
-  text-transform: uppercase;
-  padding: 1rem;
-}
-
-.formRecipe {
+.formVideogame {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding-bottom: 4rem;
+  padding: 7rem 2rem 2rem 2rem;
+  border: solid 2px green;
 }
 
-.formRecipe .image {
-  flex: 1 1 40rem;
-  animation: fadeIn 1s ease 0s 1 normal forwards;
-}
-
-.formRecipe .image img {
-  width: 100%;
-  padding: 2rem;
-}
-
-.formRecipe form {
+.formVideogame form {
+  width: 70%;
   flex: 1 1 40rem;
   padding: 2rem 3rem;
   border: .1rem solid rgba(0,0,0,.2);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
   border-radius: .5rem;
-  background: white;
+  background: var(--card);
   cursor: pointer;
   animation: fadeIn 1s ease 0s 1 normal forwards;
+  transition: 0.4s;
 }
 
 @keyframes fadeIn {
@@ -48,55 +29,64 @@
 	}
 }
 
-.formRecipe .heading {
-  text-align: left;
-  padding: 0;
-  padding-bottom: 2rem;
-}
-
-.formRecipe form .inputcaja {
+.formVideogame form .inputcaja {
   position: relative;
 }
 
-.formRecipe form .inputcaja input, 
-.formRecipe form .inputcaja textarea {
+.formVideogame form .inputcaja input, 
+.formVideogame form .inputcaja textarea {
   width: 100%;
   background: none;
-  color: #333;
+  color: var(--blanco);
   margin: 1.5rem 0;
   padding: .5rem 0;
   font-size: 1.7rem;
-  border-bottom: .1rem solid rgba(0,0,0,.1);
+  font-family: var(--fontParrafo);
+  border-bottom: .1rem solid var(--texto);
   text-transform: none;
 }
 
-.formRecipe form .inputcaja textarea {
+.formVideogame form .inputcaja textarea {
   resize: none;
   height: 13rem;
 }
 
-.formRecipe form .inputcaja label {
+.formVideogame form .inputcaja label {
   position: absolute;
   top: 1.7rem;
   left: 0;
   font-size: 1.7rem;
-  color: #666;
+  font-family: var(--fontParrafo);
+  color: var(--texto);
   transition: .2s linear;
 }
 
-.formRecipe form .inputcaja input:focus ~ label,
-.formRecipe form .inputcaja input:valid ~ label,
-.formRecipe form .inputcaja textarea:focus ~ label,
-.formRecipe form .inputcaja textarea:valid ~ label {
+.formVideogame form .inputcaja input:focus ~ label,
+.formVideogame form .inputcaja input:valid ~ label,
+.formVideogame form .inputcaja textarea:focus ~ label,
+.formVideogame form .inputcaja textarea:valid ~ label {
   top: -.5rem;
   font-size: 1.5rem;
-  color: var(--limon);
+  letter-spacing: 1.3px;
+  color: var(--gris-bajo);
 }
 
 .errorLabel {
   color: red;
-  font-size: 1.8rem;
-  text-transform: lowercase;
+  font-size: 1.3rem;
+  font-family: var(--fontBoton);
+  letter-spacing: 1.3px;
+}
+
+.containerCheckbox {
+  border: solid 1px var(--texto);
+}
+
+.labelCheckbox {
+  color: var(--blanco);
+  font-size: 1.7rem;
+  font-family: var(--fontParrafo);
+  letter-spacing: 1.3px;
 }
 
 .btn {
@@ -104,8 +94,10 @@
   margin-top: 1rem;
   padding: .8rem 3rem;
   border-radius: 5rem;
-  background: var(--card);
+  background: var(--negro);
   font-size: 1.2rem;
+  font-family: var(--fontBoton);
+  letter-spacing: 1.3px;
   color: white;
   cursor: pointer;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);

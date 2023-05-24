@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux'
 import { postVideogame } from '../../redux/actions'
 
 import styles from './FormNewVideogame.module.css'
-import imgFormKratos from './assets/logo-form.png'
 
 function validateDataForm (state, errorsState) {
   const errors = { ...errorsState }
@@ -14,7 +13,7 @@ function validateDataForm (state, errorsState) {
   const regexReleased = /^\d{4}-\d{2}-\d{2}$/
 
   if (state.name === '') {
-    errors.name = '*'
+    errors.name = ''
   } else if (state.name.length < 2 || state.name.length > 50) {
     errors.name = 'The summary should be between 2 and 500 characters in length'
   } else {
@@ -22,7 +21,7 @@ function validateDataForm (state, errorsState) {
   }
 
   if (state.released === '') {
-    errors.released = '*'
+    errors.released = ''
   } else if (!regexReleased.test(state.released)) {
     errors.released = 'The date format should be YYYY-MM-DD'
   } else {
@@ -30,7 +29,7 @@ function validateDataForm (state, errorsState) {
   }
 
   if (state.background_image === '') {
-    errors.background_image = '*'
+    errors.background_image = ''
   } else if (!regexURL.test(state.background_image)) {
     errors.background_image = 'Enter a valid URL'
   } else {
@@ -58,7 +57,7 @@ function validateDataForm (state, errorsState) {
   }
 
   if (state.description_raw === '') {
-    errors.description_raw = '*'
+    errors.description_raw = ''
   } else if (state.description_raw.length < 10 || state.description_raw.length > 500) {
     errors.description_raw = 'The summary should be between 10 and 500 characters in length'
   } else {
@@ -167,63 +166,65 @@ export default function FormRecipe () {
   }
 
   return (
-    <section className={styles.formRecipe}>
-      <div className={styles.image}>
-        <img src={imgFormKratos} alt='Kratos' />
-      </div>
+    <section className={styles.formVideogame}>
       <form onSubmit={handleSubmit}>
-        <h1 className={styles.heading}>New Videogame</h1>
-        <div className={styles.inputcaja}>
-          <input type='text' name='name' id='name' onChange={handleChange} required />
-          <label htmlFor='name'>Name Videogame</label>
-        </div>
-        {
-          (dataFormErrors.name)
-            ? (<label className={styles.errorLabel}>{dataFormErrors.name}</label>)
-            : (<></>)
-        }
-        <div className={styles.inputcaja}>
-          <input type='text' name='background_image' id='background_image' onChange={handleChange} required />
-          <label htmlFor='background_image'>Image</label>
-        </div>
-        {
-          (dataFormErrors.background_image)
-            ? (<label className={styles.errorLabel}>{dataFormErrors.background_image}</label>)
-            : (<></>)
-        }
-        <div className={styles.inputcaja}>
-          <input type='text' name='website' id='website' onChange={handleChange} required />
-          <label htmlFor='website'>Website</label>
-        </div>
-        {
+        <div className={styles.containerInputs}>
+          <div className={styles.inputcaja}>
+            <input type='text' name='name' id='name' onBlur={handleChange} required />
+            <label htmlFor='name'>Name Videogame</label>
+          </div>
+          {
+            (dataFormErrors.name)
+              ? (<label className={styles.errorLabel}>{dataFormErrors.name}</label>)
+              : (<></>)
+          }
+          <div className={styles.inputcaja}>
+            <input type='text' name='background_image' id='background_image' onBlur={handleChange} required />
+            <label htmlFor='background_image'>Image</label>
+          </div>
+          {
+            (dataFormErrors.background_image)
+              ? (<label className={styles.errorLabel}>{dataFormErrors.background_image}</label>)
+              : (<></>)
+          }
+          <div className={styles.inputcaja}>
+            <input type='text' name='website' id='website' onBlur={handleChange} required />
+            <label htmlFor='website'>Website</label>
+          </div>
+          {
           (dataFormErrors.website)
             ? (<label className={styles.errorLabel}>{dataFormErrors.website}</label>)
             : (<></>)
         }
-        <div className={styles.inputcaja}>
-          <input type='text' name='released' id='released' onChange={handleChange} required />
-          <label htmlFor='released'>Released</label>
-        </div>
-        {
+          <div className={styles.inputcaja}>
+            <input type='text' name='released' id='released' onBlur={handleChange} required />
+            <label htmlFor='released'>Released</label>
+          </div>
+          {
           (dataFormErrors.released)
             ? (<label className={styles.errorLabel}>{dataFormErrors.released}</label>)
             : (<></>)
         }
-        <br />
-        {
-          (dataFormErrors.platforms)
-            ? (<label className={styles.errorLabel}>{dataFormErrors.platforms}</label>)
+          <div className={styles.inputcaja}>
+            <textarea required name='description_raw' id='description_raw' cols={30} rows={10} onBlur={handleChange} />
+            <label htmlFor='description_raw'>About the Game</label>
+          </div>
+          {
+          (dataFormErrors.description_raw)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.description_raw}</label>)
             : (<></>)
         }
+        </div>
+        <br />
+        <label className={styles.labelCheckbox}>Platforms</label>
         <div className={styles.containerCheckbox}>
-          <h3>Platforms</h3>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='pc' value={4} onChange={handleCheckPlatform} />
+              <input type='checkbox' id='pc' value={4} onBlur={handleCheckPlatform} />
               <label htmlFor='pc' className={styles.labelCheck}>PC</label>
             </div>
             <div className={styles.itemCheck}>
-              <input type='checkbox' id='playStation5' value={187} onChange={handleCheckPlatform} />
+              <input type='checkbox' id='playStation5' value={187} onBlur={handleCheckPlatform} />
               <label htmlFor='playStation5' className={styles.labelCheck}>Play Station 5</label>
             </div>
             <div className={styles.itemCheck}>
@@ -266,14 +267,15 @@ export default function FormRecipe () {
             </div>
           </div>
         </div>
-
         {
-          (dataFormErrors.genres)
-            ? (<label className={styles.errorLabel}>{dataFormErrors.genres}</label>)
+          (dataFormErrors.platforms)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.platforms}</label>)
             : (<></>)
         }
+
+        <br />
+        <label className={styles.labelCheckbox}>Genres</label>
         <div className={styles.containerCheckbox}>
-          <h3>Genres</h3>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
               <input type='checkbox' id='action' value={4} onChange={handleCheckGenre} />
@@ -323,9 +325,15 @@ export default function FormRecipe () {
             </div>
           </div>
         </div>
+        {
+          (dataFormErrors.genres)
+            ? (<label className={styles.errorLabel}>{dataFormErrors.genres}</label>)
+            : (<></>)
+        }
 
+        <br />
+        <label className={styles.labelCheckbox}>Tags</label>
         <div className={styles.containerCheckbox}>
-          <h3>Tags</h3>
           <div className={styles.containerColumn}>
             <div className={styles.itemCheck}>
               <input type='checkbox' id='singlePlayer' value={31} onChange={handleCheckTag} />
@@ -353,17 +361,6 @@ export default function FormRecipe () {
             </div>
           </div>
         </div>
-
-        <div className={styles.inputcaja}>
-          <textarea required name='description_raw' id='description_raw' cols={30} rows={10} onChange={handleChange} />
-          <label htmlFor='description_raw'>About the Game</label>
-        </div>
-        {
-          (dataFormErrors.description_raw)
-            ? (<label className={styles.errorLabel}>{dataFormErrors.description_raw}</label>)
-            : (<></>)
-        }
-
         <button type='submit' className={styles.btn}>Create Videogame</button>
       </form>
     </section>
