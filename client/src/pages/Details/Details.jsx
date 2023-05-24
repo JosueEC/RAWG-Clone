@@ -21,38 +21,53 @@ export default function Details () {
   return (
     <section className={styles.containerDetails}>
       {
-        videogame
+        (videogame)
           ? (
             <div className={styles.content}>
-              <div className={styles.images}>
-                <div className={styles.imgHolder}>
-                  <img src={videogame.background_image} alt='recipe' />
+              <div className={styles.columnInfo}>
+                <h2 className={styles.name}>{videogame.name}</h2>
+                <label className={styles.about}>About</label>
+                <p className={styles.description}>{videogame.description_raw}</p>
+                <div className={styles.properties}>
+                  <div className={styles.columnProperties}>
+                    <div className={styles.itemProperty}>
+                      <label>Platforms</label>
+                      <p>{videogame.platforms.join(', ')}</p>
+                    </div>
+                    <div className={styles.itemProperty}>
+                      <label>Genres</label>
+                      <p>{videogame.genres.join(', ')}</p>
+                    </div>
+                  </div>
+                  <div className={styles.columnProperties}>
+                    <div className={styles.itemProperty}>
+                      <label>Release Date</label>
+                      <p>{videogame.released}</p>
+                    </div>
+                    <div className={styles.itemProperty}>
+                      <label>Rating</label>
+                      <p>{videogame.rating}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.about}>
-                  <span className={styles.heading}>About</span>
-                  <p>{videogame.description_raw}</p>
+                <div className={styles.itemProperty}>
+                  <label>Tags</label>
+                  <p>{videogame.tags.join(', ')}</p>
+                </div>
+                <div className={styles.itemProperty}>
+                  <label>Website</label>
+                  <p>{videogame.website}</p>
                 </div>
               </div>
-              <div className={styles.basicInfo}>
-                <span className={styles.heading}>{videogame.name}</span>
-              </div>
-              <div className={styles.description}>
-                <ul className={styles.features}>
-                  <li><i className='fa-solid fa-circle-check' />Released: {videogame.released}</li>
-                  <li><i className='fa-solid fa-circle-check' />WebSite: {videogame.website}</li>
-                  <li><i className='fa-solid fa-circle-check' />Rating: {videogame.rating}</li>
-                  <li><i className='fa-solid fa-circle-check' />Rating Top: {videogame.rating_top}</li>
-                  <li><i className='fa-solid fa-circle-check' />Platforms: {videogame.platforms.join(', ')}</li>
-                  <li><i className='fa-solid fa-circle-check' />Genres: {videogame.genres.join(', ')}</li>
-                  <li><i className='fa-solid fa-circle-check' />Tags: {videogame.tags.join(', ')}</li>
-                </ul>
-                {/* <span className={styles.heading}>Instructions:</span>
-                <p dangerouslySetInnerHTML={{ __html: videogame.instructions }} /> */}
+              <div className={styles.columnImages}>
+                <div className={styles.containerImage}>
+                  <img src={videogame.background_image} alt='game' />
+                </div>
               </div>
             </div>
             )
           : (
-            <h3>Loading...</h3>
+            <h2>Loading...</h2>
             )
       }
     </section>

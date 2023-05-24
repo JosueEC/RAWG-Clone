@@ -1,169 +1,68 @@
 .containerDetails {
-  min-height: 100vh;
+  color: var(--blanco);
+}
+
+.containerDetails .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 7rem;
-}
-
-.about {
+  padding: 4rem;
+  margin: 0 4rem;
+  height: 100%;
   background: var(--card);
-  padding: 2rem 1rem;
-  margin-top: 4rem;
-  font-size: 2rem;
 }
 
-.about span {
-  font-size: 3rem;
+.columnInfo {
+  padding-right: 2rem;
 }
 
-.about p {
-  font-size: 1.6rem;
-  color: #666;
-
-}
-
-.heading {
-  text-align: center;
-  background: var(--limon);
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
+.containerDetails .content .columnInfo .name {
   font-size: 3.5rem;
-  text-transform: uppercase;
-  padding: 1rem;
+  font-family: var(--fontTitulo);
+  letter-spacing: 1.6px;
+  margin-bottom: 1.5rem;
 }
 
-.content {
-  border: .1rem solid rgba(0,0,0,.2);
-  border-radius: .5rem;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-  background: var(--card);
-  padding: 45px;
-  margin: 15px 0;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "images info"
-  "images description";
-  grid-gap: 35px;
+.containerDetails .content .columnInfo .about {
+  font-size: 2rem;
+  font-family: var(--fontParrafo);
 }
 
-.content .images {
-  grid-area: images;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "active active active"
-  "idle idle idle";
-  grid-gap: 5px;
+.description {
+  font-size: 1.3rem;
+  font-family: var(--fontParrafo);
+  line-height: 23px;
+  letter-spacing: 1.3px;
+  margin-bottom: 1.5rem;
 }
 
-.content .images .imgHolder img {
-  width: 100%;
-  display: block;
-  border-radius: .5rem;
-}
-
-.content .images .imgHolder {
-  grid-area: active;
-}
-
-.content .basicInfo {
-  grid-area: info;
+.properties {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  margin-bottom: 1.5rem;
 }
 
-.content .basicInfo span {
-  font-weight: 800;
-  font-size: 25px;
+.itemProperty {
+  margin-bottom: 2rem;
+  margin-right: 3rem;
 }
 
-.content .description {
-  grid-area: description;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+.itemProperty label {
+  font-size: 1.3rem;
+  font-family: var(--fontParrafo);
+  letter-spacing: 1px;
+  border-bottom: solid 2px var(--texto);
+  color: var(--texto);
 }
 
-.content .description p {
-  color: #666;
-  font-size: 1.6rem;
-  line-height: 1.5;
+.itemProperty p {
+  margin-top: 1rem;
+  font-family: var(--fontBoton);
+  font-size: 1.2rem;
+  letter-spacing: 1.3px;
 }
 
-.content .description .features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  color: #666;
-  font-size: 1.6rem;
-}
+/* .containerDetails .content .columnImages {
+  border: solid 2px purple;
+} */
 
-.content .description .features i {
-  margin-right: 5px;
-  color: var(--limon);
-}
-
-.content .description span {
-  font-size: 2.5rem;
-  text-align: left;
-}
-
-.content .description .features .fa-circle-check {
-  color: var(--tertiary-color);
-}
-
-.content .description .features .fa-circle-xmark {
-  color: var(--yellow-color);
-}
-
-@media (max-width: 990px) {
-  .box {
-    width: 750px;
-    grid-template-areas: 
-    "info info"
-    "images description";
-  }
-}
-
-@media screen and (max-width: 991px) and (min-width: 769px) {
-  .content .basic-info span {
-    position: absolute;
-    align-self: flex-end;
-  }
-}
-
-@media (max-width: 768px) {
-  .box {
-    width: 600px;
-    grid-template-areas: 
-    "images info"
-    "description description";
-  }
-  .box .images {
-    gap: 3px;
-  }
-}
-
-@media (max-width: 640px) {
-  .box {
-    width: 100%;
-    min-height: 100vh;
-    border-radius: 0;
-    padding: 35px;
-    margin: 0;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
-    grid-template-areas: 
-    "images"
-    "info"
-    "description";
-  }
+.containerDetails .content .columnImages .containerImage img {
+  width: 450px;
 }
