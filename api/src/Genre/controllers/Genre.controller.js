@@ -3,22 +3,25 @@ const { serviceGetGenresFromAPI } = require('../services/services External API/G
 const { serviceGetGenresFromDatabase } = require('../services/services Database/GetGenres.service')
 const { serviceSaveGenresInDatabase } = require('../services/services Database/SaveGenres.service')
 
+//! Utils
+const { httpResponse } = require('../../utils/httpResponse')
+const { HTTP_FOUND, HTTP_CREATED, HTTP_NOT_FOUND } = require('../../utils/httpCodes')
+
 //! Handlers
 const getGenres = async (req, res) => {
   try {
     const genresFromDatabase = await serviceGetGenresFromDatabase()
 
     if (genresFromDatabase.length !== 0) {
-      console.log('genres database: ', genresFromDatabase)
-      res.status(302).send({ status: 'FOUND', data: genresFromDatabase })
+      httpResponse(res, HTTP_FOUND, genresFromDatabase)
     } else {
       const genresFromAPI = await serviceGetGenresFromAPI()
       serviceSaveGenresInDatabase(genresFromAPI)
 
-      res.status(201).send({ status: 'CREATED', data: genresFromAPI })
+      httpResponse(res, HTTP_CREATED, genresFromAPI)
     }
   } catch (error) {
-    res.status(404).send({ status: 'FAILED', error: error.message })
+    httpResponse(res, HTTP_NOT_FOUND, error.message)
   }
 }
 
