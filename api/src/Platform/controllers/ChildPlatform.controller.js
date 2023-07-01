@@ -3,21 +3,25 @@ const { serviceGetChildPlatfromsFromAPI } = require('../services/services Extern
 const { serviceGetChildPlatformsFromDatabase } = require('../services/services Database/GetChildPlatforms.service')
 const { serviceSaveChildPlatformsInDatabase } = require('../services/services Database/SaveChildPlatforms.service')
 
+//! Utils
+const { httpResponse } = require('../../utils/httpResponse')
+const { HTTP_FOUND, HTTP_CREATED, HTTP_NOT_FOUND } = require('../../utils/httpCodes')
+
 //! Handlers
 const getChildPlatforms = async (req, res) => {
   try {
     const childPlatformsFromDatabase = await serviceGetChildPlatformsFromDatabase()
 
     if (childPlatformsFromDatabase.length !== 0) {
-      res.status(302).send({ status: 'FOUND', data: childPlatformsFromDatabase })
+      httpResponse(res, HTTP_FOUND, childPlatformsFromDatabase)
     } else {
       const childPlatforms = await serviceGetChildPlatfromsFromAPI()
       serviceSaveChildPlatformsInDatabase(childPlatforms)
 
-      res.status(201).send({ status: 'CREATED', data: childPlatforms })
+      httpResponse(res, HTTP_CREATED, childPlatforms)
     }
   } catch (error) {
-    res.status(404).send({ status: 'FAILED', error: error.message })
+    httpResponse(res, HTTP_NOT_FOUND, error.message)
   }
 }
 
