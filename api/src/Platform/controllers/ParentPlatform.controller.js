@@ -1,13 +1,17 @@
 //! Services
 const { serviceGetParentPlatformsFromAPI } = require('../services/services External API/GetParentPlatforms.service')
 
+//! Utils
+const { httpResponse } = require('../../utils/httpResponse')
+const { HTTP_FOUND, HTTP_NOT_FOUND } = require('../../utils/httpCodes')
+
 //! Handlers
 const getParentPlatforms = async (req, res) => {
   try {
     const platforms = await serviceGetParentPlatformsFromAPI()
-    res.status(302).send({ status: 'FOUND', data: platforms })
+    httpResponse(res, HTTP_FOUND, platforms)
   } catch (error) {
-    res.status(404).send({ status: 'FAILED', error: error.message })
+    httpResponse(res, HTTP_NOT_FOUND, error.message)
   }
 }
 
