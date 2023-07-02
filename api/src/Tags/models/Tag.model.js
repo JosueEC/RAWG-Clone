@@ -9,8 +9,15 @@ module.exports = (database) => {
       primaryKey: true,
       allowNull: false,
       validate: {
-        isNumeric: true,
-        isInt: true
+        notEmpty: {
+          msg: 'tag ID cannot be empty'
+        },
+        isNumeric: {
+          msg: 'tag ID must be a numerical value'
+        },
+        isInt: {
+          msg: 'tag ID must be a valid integer'
+        }
       }
     },
     name: {
@@ -18,7 +25,16 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        len: [2, 50]
+        notEmpty: {
+          msg: 'tag name cannot be empty'
+        },
+        isLowercase: {
+          msg: 'tag name must be lowercase'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'tag name must be between 2 and 50 characters in lenght'
+        }
       }
     },
     slug: {
@@ -26,7 +42,16 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        len: [2, 50]
+        notEmpty: {
+          msg: 'tag slug cannot be empty'
+        },
+        isLowercase: {
+          msg: 'tag slug must be lowercase'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'tag slug must be between 2 and 50 characters in lenght'
+        }
       }
     },
     games_count: {
@@ -34,8 +59,15 @@ module.exports = (database) => {
       allowNull: false,
       defaultValue: 0,
       validate: {
-        isNumeric: true,
-        isInt: true
+        notEmpty: {
+          msg: 'tag games count cannot be empty'
+        },
+        isNumeric: {
+          msg: 'tag games count must be a numerical value'
+        },
+        isInt: {
+          msg: 'tag games count must be a valid integer'
+        }
       }
     },
     image_background: {
@@ -43,10 +75,16 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        isUrl: true
+        notEmpty: {
+          msg: 'tag image cannot be empty'
+        },
+        isUrl: {
+          msg: 'tag image must be a valid image URL'
+        }
       }
     }
   }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
   })
 }
