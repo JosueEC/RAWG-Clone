@@ -48,6 +48,39 @@ const validatePostVideogame = [
     .notEmpty()
     .isNumeric()
     .isInt(),
+  body('platforms')
+    .exists()
+    .notEmpty()
+    .isArray()
+    .custom(value => {
+      const areNumbers = value.every(number => {
+        return typeof number === 'number'
+      })
+      if (areNumbers) return true
+      throw new Error('invalid platforms IDs')
+    }),
+  body('genres')
+    .exists()
+    .notEmpty()
+    .isArray()
+    .custom(value => {
+      const areNumbers = value.every(number => {
+        return typeof number === 'number'
+      })
+      if (areNumbers) return true
+      throw new Error('invalid genres IDs')
+    }),
+  body('tags')
+    .exists()
+    .notEmpty()
+    .isArray()
+    .custom(value => {
+      const areNumbers = value.every(number => {
+        return typeof number === 'number'
+      })
+      if (areNumbers) return true
+      throw new Error('invalid tags IDs')
+    }),
   body('description_raw')
     .exists()
     .notEmpty()
