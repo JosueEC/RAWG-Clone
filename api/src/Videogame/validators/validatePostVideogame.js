@@ -1,4 +1,5 @@
 const { body } = require('express-validator')
+const { validate } = require('../../helpers/validate.helper')
 
 const validatePostVideogame = [
   body('name')
@@ -52,7 +53,7 @@ const validatePostVideogame = [
     .notEmpty()
     .isLength({ min: 10, max: 1600 }),
   (req, res, next) => {
-
+    validate(req, res, next)
   }
 ]
 
