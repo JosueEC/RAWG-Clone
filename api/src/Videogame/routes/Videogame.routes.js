@@ -1,6 +1,8 @@
 //! Express Router
 const { Router } = require('express')
 
+const { validatePostVideogame } = require('../validators/validatePostVideogame')
+
 //! Controller Module
 const VideogameController = require('../controllers/Videogame.controller')
 
@@ -16,7 +18,7 @@ router.get('/', VideogameController.getVideogames)
 router.get('/:idVideogame', VideogameController.getVideogameByID)
 
 // Crea un nuevo videojuego en nuestra base de datos con la informacion recibida por query
-router.post('/', VideogameController.postVideogame)
+router.post('/', validatePostVideogame, VideogameController.postVideogame)
 
 // TODO: Actualiza los datos de un videogame existente en nuestra base de datos a traves de un ID recibido en el body, asi como los datos a modificar
 router.put('/', (req, res) => {
