@@ -7,17 +7,29 @@ module.exports = (database) => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV1,
-      primaryKey: true
-      // validate: {
-      //   isUUid: true
-      // }
+      allowNull: false,
+      primaryKey: true,
+      validate: {
+        notEmpty: {
+          msg: 'videogame ID cannot be empty'
+        }
+      }
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        len: [2, 50]
+        notEmpty: {
+          msg: 'videogame name cannot be empty'
+        },
+        isLowercase: {
+          msg: 'videogame name must be lowercase'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'videogame name must be betweeen 2 and 50 characters'
+        }
       }
     },
     slug: {
@@ -25,15 +37,24 @@ module.exports = (database) => {
       allowNull: false,
       unique: true,
       validate: {
-        len: [2, 50]
+        notEmpty: {
+          msg: 'vidoegame slug cannot be empty'
+        },
+        isLowercase: {
+          msg: 'videogame slug must be lowercase'
+        },
+        len: {
+          args: [2, 50],
+          msg: 'videogame slug must be between 2 and 50 characters'
+        }
       }
     },
     released: {
       type: DataTypes.STRING,
-      allowNull: false
-      // validate: {
-      //   is: /^\\d{4}-\\d{2}-\\d{2}$/i
-      // }
+      allowNull: false,
+      validate: {
+        is: /^\\d{4}-\\d{2}-\\d{2}$/i
+      }
     },
     background_image: {
       type: DataTypes.STRING,
